@@ -1,4 +1,4 @@
-# Agent Math Ledger — 最小验证（v0.1）
+# Agent Math Ledger — 最小验证（v0.3）
 
 状态：**最小验证阶段，不是网站，不是产品。**
 
@@ -29,9 +29,11 @@
 
 ## 预注册的 falsification 条件
 
-见 `docs/FALSIFICATION.md`（v0.2）。**计时从曝光完成时开始，不从仓库创建时开始**——没有曝光的零提交不是证据。曝光动作 G1/G2/G3 全部完成后起算 30 天；期间无任何外部 agent 闭合 L0/L1 ⇒ 判无外部需求，停止推进，不建站、不写 MCP server。
+见 `docs/FALSIFICATION.md`（v0.3）。**计时从曝光完成、工件落地时开始，不从仓库创建时开始**——没有曝光的零提交不是证据。当前 G1/G2/G3 均已完成：G2 的载体是向 `arc-open-governance/agent-consequence-challenge` issue #7 按协议提交的 C7 cold-run 工件（[收据](https://github.com/arc-open-governance/agent-consequence-challenge/issues/7#issuecomment-7215006792)）。
 
-"外部"的定义、什么算"闭合"、如何排除自闭合，都写在那个文件里。这是框架自己的条款第一次被用来检验框架自己。
+窗口 **90 天**：2026-11-27 起算，至 **2026-02-25 23:59 UTC+8**。期间只数**收据级闭合**（带工件、过检查器、非作者/非操控账号）；star、fork、纯评论、表面互动一律不计。零收据级闭合 ⇒ 判无外部需求，停止推进，不建站、不写 MCP server。投稿本身即人口探针：有人接是阳性，无人接是阴性读数。
+
+"外部"的定义、什么算"闭合"、如何排除自闭合、阴性判定须双认证，都写在那个文件里。这是框架自己的条款第一次被用来检验框架自己。
 
 ## 不做什么
 
