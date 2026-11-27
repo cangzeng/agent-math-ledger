@@ -1,0 +1,46 @@
+{
+  "id": "R-0005",
+  "source_type": "registration_card",
+  "source": "F:\\投稿\\101\\物理\\555\\000语义落地\\语义落地1;  千禧难题的三层审查-判据操作化、管辖权裁决与悬置的解除条件\\最后1定稿.docx",
+  "source_locator": "第3章 登记 3.3（杨-米尔斯案）+ 第7章公理剖面",
+  "role": "millennium_case",
+  "object": {
+    "status": "待构造",
+    "text": "满足规格的四维量子杨-米尔斯理论对象；公理剖面按第7章登记"
+  },
+  "claim": {
+    "status": "未确立",
+    "text": "存在性与质量间隙命题"
+  },
+  "certificate_status": "悬置（构造侧；须先固定公理剖面方可注册）",
+  "certificate_mode": "none",
+  "protocol_slots": [
+    {
+      "id": "A1",
+      "description": "固定公理剖面 E_YM（原文第7章）",
+      "status": "missing",
+      "reason": "对象栏为待构造，未固定剖面时不得注册"
+    },
+    {
+      "id": "A2",
+      "description": "存在性证书与质量间隙证书协议",
+      "status": "missing",
+      "reason": "依赖 A1 先完成"
+    }
+  ],
+  "budget": {
+    "t_seconds": null,
+    "L_records": null,
+    "k_independent_verifiers": null,
+    "E_environment": "E_YM (not yet fixed)",
+    "instantiated": false
+  },
+  "history": [
+    {
+      "at": "2026-11-27T16:45:00+08:00",
+      "event": "registered",
+      "actor": "ledger-initializer",
+      "note": "按原文登记 3.3；'待构造'是进度状态，不是否定性判决"
+    }
+  ]
+}
