@@ -1,0 +1,636 @@
+{
+  "adversarial_tests": [
+    {
+      "claim": "Independent receipt verification compares every field of a settlement receipt against the authoritative record \u2014 the stored request, the stored signed approval, and the gated store-history entry \u2014 and additionally verifies the receipt's signature under the engine's instance secret. A single-field alteration of the stated object, the prestate digest, the sequence number, or the approval digest is rejected; the poststate digest, already bound in v0.1, stays rejected; and a field-perfect receipt re-signed with the published key is rejected on its signature.",
+      "controls": [
+        {
+          "expected": "The receipt exactly as issued verifies against the authoritative record (the control proving the A1 setup itself is valid).",
+          "expected_code": "untouched_receipt_verified",
+          "expected_frozen_in_expected_json": "untouched_receipt_verified",
+          "kind": "positive",
+          "name": "untouched_receipt_verifies",
+          "observed": "verify_receipt(untouched) = (True, verified)",
+          "observed_code": "untouched_receipt_verified",
+          "pass": true
+        },
+        {
+          "expected": "A receipt altered in exactly one field \u2014 the stated object (effect.object) \u2014 is rejected by independent verification (verifier code: effect_object_mismatch). In v0.1 this alteration verified; the field is now compared against the authoritative record, not taken on trust.",
+          "expected_code": "rejected_effect_object_mismatch",
+          "expected_frozen_in_expected_json": "rejected_effect_object_mismatch",
+          "kind": "negative",
+          "name": "altered_stated_object_rejected",
+          "observed": "verify_receipt(altered the stated object (effect.object)) = (False, effect_object_mismatch)",
+          "observed_code": "rejected_effect_object_mismatch",
+          "pass": true
+        },
+        {
+          "expected": "A receipt altered in exactly one field \u2014 the prestate digest (effect.prestate_digest) \u2014 is rejected by independent verification (verifier code: prestate_digest_mismatch). In v0.1 this alteration verified; the field is now compared against the authoritative record, not taken on trust.",
+          "expected_code": "rejected_prestate_digest_mismatch",
+          "expected_frozen_in_expected_json": "rejected_prestate_digest_mismatch",
+          "kind": "negative",
+          "name": "altered_prestate_digest_rejected",
+          "observed": "verify_receipt(altered the prestate digest (effect.prestate_digest)) = (False, prestate_digest_mismatch)",
+          "observed_code": "rejected_prestate_digest_mismatch",
+          "pass": true
+        },
+        {
+          "expected": "A receipt altered in exactly one field \u2014 the sequence number (seq) \u2014 is rejected by independent verification (verifier code: seq_mismatch). In v0.1 this alteration verified; the field is now compared against the authoritative record, not taken on trust.",
+          "expected_code": "rejected_seq_mismatch",
+          "expected_frozen_in_expected_json": "rejected_seq_mismatch",
+          "kind": "negative",
+          "name": "altered_sequence_number_rejected",
+          "observed": "verify_receipt(altered the sequence number (seq)) = (False, seq_mismatch)",
+          "observed_code": "rejected_seq_mismatch",
+          "pass": true
+        },
+        {
+          "expected": "A receipt altered in exactly one field \u2014 the approval digest (approval_digest) \u2014 is rejected by independent verification (verifier code: approval_digest_mismatch). In v0.1 this alteration verified; the field is now compared against the authoritative record, not taken on trust.",
+          "expected_code": "rejected_approval_digest_mismatch",
+          "expected_frozen_in_expected_json": "rejected_approval_digest_mismatch",
+          "kind": "negative",
+          "name": "altered_approval_digest_rejected",
+          "observed": "verify_receipt(altered the approval digest (approval_digest)) = (False, approval_digest_mismatch)",
+          "observed_code": "rejected_approval_digest_mismatch",
+          "pass": true
+        },
+        {
+          "expected": "A receipt altered in exactly one field \u2014 the poststate digest (effect.poststate_digest) \u2014 already bound in v0.1; it must stay rejected \u2014 is rejected by independent verification (verifier code: no_matching_gated_effect). In v0.1 this alteration verified; the field is now compared against the authoritative record, not taken on trust.",
+          "expected_code": "rejected_no_matching_gated_effect",
+          "expected_frozen_in_expected_json": "rejected_no_matching_gated_effect",
+          "kind": "negative",
+          "name": "altered_poststate_digest_rejected",
+          "observed": "verify_receipt(altered the poststate digest (effect.poststate_digest) \u2014 already bound in v0.1; it must stay rejected) = (False, no_matching_gated_effect)",
+          "observed_code": "rejected_no_matching_gated_effect",
+          "pass": true
+        },
+        {
+          "expected": "A receipt whose every field matches the authoritative record but whose signature was recomputed under the PUBLISHED fixture key is rejected on the signature (receipt_signature_invalid): v0.3 receipts are signed under the engine's per-instance secret, so forgery rejection is a signature property, not only a ledger property. In v0.1/v0.2 the published key was the system's only signing material and a signature authenticated nothing.",
+          "expected_code": "rejected_receipt_signature_invalid",
+          "expected_frozen_in_expected_json": "rejected_receipt_signature_invalid",
+          "kind": "negative",
+          "name": "resigned_with_published_key_rejected",
+          "observed": "verify_receipt(re-signed with published key) = (False, receipt_signature_invalid)",
+          "observed_code": "rejected_receipt_signature_invalid",
+          "pass": true
+        }
+      ],
+      "evidence": {
+        "alteration_verifier_codes": {
+          "altered_approval_digest_rejected": "approval_digest_mismatch",
+          "altered_poststate_digest_rejected": "no_matching_gated_effect",
+          "altered_prestate_digest_rejected": "prestate_digest_mismatch",
+          "altered_sequence_number_rejected": "seq_mismatch",
+          "altered_stated_object_rejected": "effect_object_mismatch",
+          "resigned_with_published_key": "receipt_signature_invalid",
+          "untouched": "verified"
+        },
+        "receipt": {
+          "approval_digest": "sha256:c1e0f50135cf7b79036c6e304cad58d06dc92227ff693a4b48d605ac53064e24",
+          "effect": {
+            "object": "obj-x",
+            "poststate_digest": "sha256:9a116666b607ed4d326e9dc8d8243e1b96007833e83cf738a2f603fff2a70d3b",
+            "prestate_digest": "sha256:ff7828a94ba38a3a8762e967f11e49c060795725163ab04321969d84a951ee27"
+          },
+          "kind": "settlement_receipt",
+          "request_digest": "sha256:ca65a417769ab8a9e6a342e3c3ce4fdf30cd03737cd5bbbd58302abe023b9307",
+          "request_id": "req-ca65a417769ab8a9",
+          "seq": 0,
+          "signature": "feea20a4e453da30fc1f77c9df88860e1647808e80cc7f77891792e2d7ea4f33"
+        }
+      },
+      "evidence_digest": "sha256:313b91c6c39ca6af7039d17268e73c8e0c125253a2739f052f13c12c08547c39",
+      "origin": "Outside-audit candidate, confirmed by governed reproduction at fixture strength (examination record, 2026-11-01); encoded here as the v0.2 correction's regression proof. The re-signing control was added in v0.3 from the Nov 9, 2026 comparison's strict-strength V9 finding.",
+      "strength": "Local record-layer strength: a self-contained fixture engine in this kit implements the claimed semantics. A pass establishes that the semantics are coherent and reproducible against frozen inputs. It establishes nothing about any deployed system; run the same cases against a real stack under Issue #31 to test production behavior.",
+      "test_id": "A1",
+      "title": "Receipt-field completeness (adversarial, v0.2; signature leg added v0.3)",
+      "verdict": "PASS"
+    },
+    {
+      "claim": "Revocation enforcement walks the declared ancestry: after an upstream request is revoked, new reliance on it through any declared intermediate is refused with dependency_revoked \u2014 enforcement now matches the transitive detection the engine already reported. Unrelated authorized activity is unaffected, and the structural impossibility of a declared cycle is stated, not papered over.",
+      "controls": [
+        {
+          "expected": "Detection is unchanged from v0.1: dependents_of(A) reports both B and C, and both derived statuses read contested_revoked_ancestry. The v0.1 defect was never detection \u2014 it was enforcement stopping at the direct edge.",
+          "expected_code": "detection_transitive_contested_ancestry",
+          "expected_frozen_in_expected_json": "detection_transitive_contested_ancestry",
+          "kind": "positive",
+          "name": "transitive_detection_reports_revoked_ancestry",
+          "observed": "dependents_of(A)=['req-2b97c4418040689e', 'req-43478c5c4a2a5f0e']; status_B=contested_revoked_ancestry; status_C=contested_revoked_ancestry",
+          "observed_code": "detection_transitive_contested_ancestry",
+          "pass": true
+        },
+        {
+          "expected": "A new action declaring dependence on C (two declared intermediates from A), executed after A was revoked, is refused (dependency_revoked): enforcement walks the declared ancestry to the revoked request. In v0.1 this reliance was admitted whenever C (two declared intermediates from A) was not itself the revoked request.",
+          "expected_code": "refused_dependency_revoked",
+          "expected_frozen_in_expected_json": "refused_dependency_revoked",
+          "kind": "negative",
+          "name": "reliance_through_c_refused",
+          "observed": "execute(reliance via C (two declared intermediates from A)) = refusal:dependency_revoked",
+          "observed_code": "refused_dependency_revoked",
+          "pass": true
+        },
+        {
+          "expected": "A new action declaring dependence on B (one declared intermediate from A), executed after A was revoked, is refused (dependency_revoked): enforcement walks the declared ancestry to the revoked request. In v0.1 this reliance was admitted whenever B (one declared intermediate from A) was not itself the revoked request.",
+          "expected_code": "refused_dependency_revoked",
+          "expected_frozen_in_expected_json": "refused_dependency_revoked",
+          "kind": "negative",
+          "name": "reliance_through_b_refused",
+          "observed": "execute(reliance via B (one declared intermediate from A)) = refusal:dependency_revoked",
+          "observed_code": "refused_dependency_revoked",
+          "pass": true
+        },
+        {
+          "expected": "A new action declaring dependence on A itself (the direct edge \u2014 already refused in v0.1), executed after A was revoked, is refused (dependency_revoked): enforcement walks the declared ancestry to the revoked request. In v0.1 this reliance was admitted whenever A itself (the direct edge \u2014 already refused in v0.1) was not itself the revoked request.",
+          "expected_code": "refused_dependency_revoked",
+          "expected_frozen_in_expected_json": "refused_dependency_revoked",
+          "kind": "negative",
+          "name": "direct_reliance_on_revoked_refused",
+          "observed": "execute(reliance via A itself (the direct edge \u2014 already refused in v0.1)) = refusal:dependency_revoked",
+          "observed_code": "refused_dependency_revoked",
+          "pass": true
+        },
+        {
+          "expected": "An authorized action declaring no dependence on the revoked chain still executes after the revocation; the ancestry walk refuses reliance on revoked authority, not unrelated work.",
+          "expected_code": "unrelated_admitted",
+          "expected_frozen_in_expected_json": "unrelated_admitted",
+          "kind": "positive",
+          "name": "unrelated_action_admitted",
+          "observed": "execute(unrelated) = ok",
+          "observed_code": "unrelated_admitted",
+          "pass": true
+        },
+        {
+          "expected": "STRUCTURAL, on the record: a declared dependence cycle cannot be constructed with this kit's API, because a request_id is a content digest over depends_on \u2014 closing a cycle would require a hash fixed point. The pair built against a placeholder does not close (the computed id differs from the placeholder it would have to equal), and iterated self-dependence reaches no fixed point. There is therefore no cycle-revocation behavior to claim, in either direction.",
+          "expected_code": "cycle_unconstructible_content_digest_ids",
+          "expected_frozen_in_expected_json": "cycle_unconstructible_content_digest_ids",
+          "kind": "structural",
+          "name": "declared_cycle_unconstructible",
+          "observed": "placeholder=req-0000000000000000; computed_counterpart_id=req-a86b7731d9f05d64; self_dependence_fixed_point=False",
+          "observed_code": "cycle_unconstructible_content_digest_ids",
+          "pass": true
+        },
+        {
+          "expected": "After the engine's state is carried through the export/import dump/load into a fresh Engine (the restart carriage of the examination record), enforcement is identical: reliance through C and direct reliance on A are both refused, and C's derived status still reads contested_revoked_ancestry. In v0.1 the through-C reliance was admitted after the same carriage.",
+          "expected_code": "post_restart_reliance_refused_identical",
+          "expected_frozen_in_expected_json": "post_restart_reliance_refused_identical",
+          "kind": "positive",
+          "name": "restart_carriage_preserves_enforcement",
+          "observed": "post-carriage: through_C=refusal:dependency_revoked; direct_A=refusal:dependency_revoked; status_C=contested_revoked_ancestry",
+          "observed_code": "post_restart_reliance_refused_identical",
+          "pass": true
+        }
+      ],
+      "evidence": {
+        "chain": {
+          "A": "req-9dad82cafb638649",
+          "B": "req-2b97c4418040689e",
+          "C": "req-43478c5c4a2a5f0e"
+        },
+        "dependents_of_revoked": [
+          "req-2b97c4418040689e",
+          "req-43478c5c4a2a5f0e"
+        ],
+        "derived_statuses": {
+          "B": "contested_revoked_ancestry",
+          "C": "contested_revoked_ancestry"
+        },
+        "post_carriage_status_c": "contested_revoked_ancestry"
+      },
+      "evidence_digest": "sha256:a1bb1e80ea61c85dcd75083e578e70ac6caaad16233a610a8e042cf407b2f989",
+      "origin": "Outside-audit candidate, confirmed by governed reproduction at fixture strength (examination record, 2026-11-01); encoded here as the v0.2 correction's regression proof.",
+      "strength": "Local record-layer strength: a self-contained fixture engine in this kit implements the claimed semantics. A pass establishes that the semantics are coherent and reproducible against frozen inputs. It establishes nothing about any deployed system; run the same cases against a real stack under Issue #31 to test production behavior.",
+      "test_id": "A2",
+      "title": "Multilevel revocation (adversarial, v0.2)",
+      "verdict": "PASS"
+    },
+    {
+      "claim": "Authorization in v0.3 is a property of registered principals, checked where it bites: approve() admits only a registered, active approver presenting a valid proof; execute() re-checks the approver's current authorization, so withdrawal after approval blocks the effect; propose() authenticates the actor's proof over the exact request; sensitive reads require the reader role and are audited, served or refused. The compromised-but-valid-credential case is not claimed: it is a standing limitation, stated in the engine's strength statement, not silently absorbed into these passes.",
+      "controls": [
+        {
+          "expected": "An approval presented under the string 'arbitrary-unauthorized-string' \u2014 not a registered principal \u2014 is refused at approve() (approver_not_authorized) and records nothing. In v0.2 this exact string was accepted as an approver and its approval executed (Nov 9 comparison, V8 leg B).",
+          "expected_code": "refused_approver_not_authorized",
+          "expected_frozen_in_expected_json": "refused_approver_not_authorized",
+          "kind": "negative",
+          "name": "arbitrary_string_approver_refused",
+          "observed": "approve(arbitrary string)=refusal:approver_not_authorized; approvals_recorded=0",
+          "observed_code": "refused_approver_not_authorized",
+          "pass": true
+        },
+        {
+          "expected": "An approval by a registered approver, followed by withdrawal of that approver's authorization before execution, refuses at execute() (approver_no_longer_authorized): execute() re-checks the approver's CURRENT authorization, so a standing approval from a withdrawn approver authorizes no effect. In v0.2 the fixture had no approver-authorization concept at all (V8 leg B: NOT_SUPPORTED).",
+          "expected_code": "refused_approver_no_longer_authorized",
+          "expected_frozen_in_expected_json": "refused_approver_no_longer_authorized",
+          "kind": "negative",
+          "name": "withdrawn_approver_execution_refused",
+          "observed": "execute(after approver withdrawal)=refusal:approver_no_longer_authorized; state_unchanged=True; receipts=0",
+          "observed_code": "refused_approver_no_longer_authorized",
+          "pass": true
+        },
+        {
+          "expected": "A proposal whose actor is an unregistered bare string ('compromised-anyone', the exact assertion the Nov 9 V9 leg B executed under in v0.2), and a proposal under a registered actor's name with an invalid proof, are both refused at propose() (actor_not_authenticated) and record nothing: propose() authenticates the actor's proof over the exact request bytes. What this does NOT claim: a valid proof presented by the wrong party (a genuinely compromised credential) is indistinguishable at this layer \u2014 that limitation stands, stated in the engine's strength statement.",
+          "expected_code": "refused_actor_not_authenticated",
+          "expected_frozen_in_expected_json": "refused_actor_not_authenticated",
+          "kind": "negative",
+          "name": "unauthenticated_actor_proposal_refused",
+          "observed": "propose(bare actor)=refusal:actor_not_authenticated; propose(registered name, bad proof)=refusal:actor_not_authenticated; requests_recorded=0",
+          "observed_code": "refused_actor_not_authenticated",
+          "pass": true
+        },
+        {
+          "expected": "A read of the sensitive-classification object by a principal without the reader_sensitive role (presenting its own valid proof), and a read with no identity at all, are both refused (read_not_authorized), and both refusals stand in the read audit. In v0.2 query() took no identity and served a state digest to any caller (Nov 9 comparison, V12: NOT_SUPPORTED).",
+          "expected_code": "refused_read_not_authorized_audited",
+          "expected_frozen_in_expected_json": "refused_read_not_authorized_audited",
+          "kind": "negative",
+          "name": "unauthorized_sensitive_read_refused_and_audited",
+          "observed": "query(actor, no reader role)=refusal:read_not_authorized; query(anonymous)=refusal:read_not_authorized; read_denied_entries=2",
+          "observed_code": "refused_read_not_authorized_audited",
+          "pass": true
+        },
+        {
+          "expected": "A read of the sensitive object by the registered sensitive reader, presenting a valid proof over the read, is served as a query view of the classified state, and the served read stands in the read audit: authorization gates the read, and the audit covers both outcomes.",
+          "expected_code": "authorized_sensitive_read_served_audited",
+          "expected_frozen_in_expected_json": "authorized_sensitive_read_served_audited",
+          "kind": "positive",
+          "name": "authorized_sensitive_read_served_and_audited",
+          "observed": "query(authorized reader) kind=query_view; classification=sensitive; digest_matches=True; read_served_entries=1",
+          "observed_code": "authorized_sensitive_read_served_audited",
+          "pass": true
+        }
+      ],
+      "evidence": {
+        "read_audit": [
+          {
+            "kind": "read_denied",
+            "object": "obj-secret",
+            "reader": "examiner-fixture"
+          },
+          {
+            "kind": "read_denied",
+            "object": "obj-secret",
+            "reader": null
+          },
+          {
+            "kind": "read_served",
+            "object": "obj-secret",
+            "reader": "fixture-reader"
+          }
+        ],
+        "refusal_codes": {
+          "anonymous_read": "read_not_authorized",
+          "arbitrary_approver": "approver_not_authorized",
+          "bad_proof": "actor_not_authenticated",
+          "bare_actor": "actor_not_authenticated",
+          "unauthorized_read": "read_not_authorized",
+          "withdrawn_approver": "approver_no_longer_authorized"
+        }
+      },
+      "evidence_digest": "sha256:6fd775f0d18b5f26934271b5fc04dfc5b72c5964c18648e325e4e924de368643",
+      "origin": "Measured fixture failures of the Nov 9, 2026 comparative examination (frozen protocol, same-team execution): V8 approver authorization absent, V12 read authorization absent, V9 leg B actor unauthenticated, V9 strict key published. Encoded here as the v0.3 corrections' regression proof.",
+      "strength": "Local record-layer strength: a self-contained fixture engine in this kit implements the claimed semantics. A pass establishes that the semantics are coherent and reproducible against frozen inputs. It establishes nothing about any deployed system; run the same cases against a real stack under Issue #31 to test production behavior.",
+      "test_id": "A3",
+      "title": "Authorization completeness (adversarial, v0.3)",
+      "verdict": "PASS"
+    },
+    {
+      "claim": "execute() re-checks the request actor's current authorization as it re-checks the approver's: an actor withdrawn before execution authorizes no effect; a current actor's request still executes; withdrawal after the effect neither rolls it back nor invalidates its receipt.",
+      "controls": [
+        {
+          "expected": "A request proposed by a registered actor, approved and released, whose actor is then withdrawn before execution, refuses at execute() (actor_no_longer_authorized) with no effect and no receipt: execute() re-checks the actor's CURRENT authorization. In v0.3 this request committed (outside finding, codexmainbizmac, 2026-11-10).",
+          "expected_code": "refused_actor_no_longer_authorized",
+          "expected_frozen_in_expected_json": "refused_actor_no_longer_authorized",
+          "kind": "negative",
+          "name": "withdrawn_actor_execution_refused",
+          "observed": "execute(after actor withdrawal)=refusal:actor_no_longer_authorized; state_unchanged=True; receipts=0",
+          "observed_code": "refused_actor_no_longer_authorized",
+          "pass": true
+        },
+        {
+          "expected": "The same request shape with the actor still registered and active executes and is receipted: the actor-currency check refuses withdrawn actors, not current ones.",
+          "expected_code": "current_actor_committed",
+          "expected_frozen_in_expected_json": "current_actor_committed",
+          "kind": "positive",
+          "name": "current_actor_execution_commits",
+          "observed": "execute(actor current)=ok; receipted=True",
+          "observed_code": "current_actor_committed",
+          "pass": true
+        },
+        {
+          "expected": "Withdrawing the actor after its effect committed does not roll the effect back, and the issued receipt still verifies: currency is checked where the effect is authorized, at execution, not retroactively.",
+          "expected_code": "effect_stands_receipt_verifies",
+          "expected_frozen_in_expected_json": "effect_stands_receipt_verifies",
+          "kind": "positive",
+          "name": "actor_withdrawal_after_effect_no_rollback",
+          "observed": "state_kept=True; verify_receipt=True:verified",
+          "observed_code": "effect_stands_receipt_verifies",
+          "pass": true
+        }
+      ],
+      "evidence": {
+        "refusal_code_withdrawn_actor": "actor_no_longer_authorized",
+        "verify_after_withdrawal": "verified"
+      },
+      "evidence_digest": "sha256:5e22921f376969baab91b2c801aa6da74fd5d63d3e21964d0f925fcbdd53620b",
+      "origin": "Outside examination of v0.3 by codexmainbizmac (2026-11-10, network-denied sandbox, public API): actor withdrawn after propose() still committed. Reproduced by the publisher; corrected in v0.3.1.",
+      "strength": "Local record-layer strength: a self-contained fixture engine in this kit implements the claimed semantics. A pass establishes that the semantics are coherent and reproducible against frozen inputs. It establishes nothing about any deployed system; run the same cases against a real stack under Issue #31 to test production behavior.",
+      "test_id": "A4",
+      "title": "Actor currency at execution (adversarial, v0.3.1)",
+      "verdict": "PASS"
+    }
+  ],
+  "kit": "arc-examiner-kit",
+  "manifest_digest": "sha256:4e1b7a6b3c0b0b37e16113bf1370f291a28f0f00078d470579c8680256790930",
+  "results_digest": "sha256:f51c98c7dcb7489b2cd17c60875c4a4bf9625f204b3eb51c15cb3d449092b83f",
+  "summary": {
+    "adversarial_controls": 22,
+    "adversarial_controls_passed": 22,
+    "adversarial_tests": 4,
+    "adversarial_tests_passed": 4,
+    "all_pass": true,
+    "controls": 12,
+    "controls_passed": 12,
+    "tests": 6,
+    "tests_passed": 6
+  },
+  "tests": [
+    {
+      "claim": "A receipt is anchored to the consequential request and its settlement, not to the query that later retrieves the record.",
+      "controls": [
+        {
+          "expected": "Exact authorized request executes once; the settlement receipt binds the request digest; a later query returns the new state and creates no receipt.",
+          "expected_code": "committed_with_bound_receipt",
+          "expected_frozen_in_expected_json": "committed_with_bound_receipt",
+          "kind": "positive",
+          "name": "authorized_update_commits_with_request_bound_receipt",
+          "observed": "execute=ok; receipt_kind=settlement_receipt; state={'value': 'beta', 'version': 1}; receipts=1; query_kind=query_view",
+          "observed_code": "committed_with_bound_receipt",
+          "pass": true
+        },
+        {
+          "expected": "Execution presented without a release is refused; state is unchanged; no receipt exists.",
+          "expected_code": "refused_no_valid_release",
+          "expected_frozen_in_expected_json": "refused_no_valid_release",
+          "kind": "negative",
+          "name": "execution_without_release_refused",
+          "observed": "execute=refusal:no_valid_release; state_unchanged=True; receipts=0",
+          "observed_code": "refused_no_valid_release",
+          "pass": true
+        }
+      ],
+      "evidence": {
+        "query_view": {
+          "classification": "standard",
+          "history_len": 1,
+          "kind": "query_view",
+          "object": "obj-x",
+          "state_digest": "sha256:9a116666b607ed4d326e9dc8d8243e1b96007833e83cf738a2f603fff2a70d3b"
+        },
+        "receipt": {
+          "approval_digest": "sha256:c1e0f50135cf7b79036c6e304cad58d06dc92227ff693a4b48d605ac53064e24",
+          "effect": {
+            "object": "obj-x",
+            "poststate_digest": "sha256:9a116666b607ed4d326e9dc8d8243e1b96007833e83cf738a2f603fff2a70d3b",
+            "prestate_digest": "sha256:ff7828a94ba38a3a8762e967f11e49c060795725163ab04321969d84a951ee27"
+          },
+          "kind": "settlement_receipt",
+          "request_digest": "sha256:ca65a417769ab8a9e6a342e3c3ce4fdf30cd03737cd5bbbd58302abe023b9307",
+          "request_id": "req-ca65a417769ab8a9",
+          "seq": 0,
+          "signature": "feea20a4e453da30fc1f77c9df88860e1647808e80cc7f77891792e2d7ea4f33"
+        }
+      },
+      "evidence_digest": "sha256:29b21692c5ac7972b7bdbadd558b5b24bad340718141851830d0c6955827a4a4",
+      "issue35_case": 1,
+      "strength": "Local record-layer strength: a self-contained fixture engine in this kit implements the claimed semantics. A pass establishes that the semantics are coherent and reproducible against frozen inputs. It establishes nothing about any deployed system; run the same cases against a real stack under Issue #31 to test production behavior.",
+      "test_id": "T1",
+      "title": "Authorized update",
+      "verdict": "PASS"
+    },
+    {
+      "claim": "Approval and release bind the exact request digest; altering the request after approval voids the authorization for the altered bytes.",
+      "controls": [
+        {
+          "expected": "The exact approved-and-released request executes (control proving the T2 setup itself is valid).",
+          "expected_code": "committed_exact_request",
+          "expected_frozen_in_expected_json": "committed_exact_request",
+          "kind": "positive",
+          "name": "exact_request_executes",
+          "observed": "execute=ok; state_x={'value': 'beta', 'version': 1}",
+          "observed_code": "committed_exact_request",
+          "pass": true
+        },
+        {
+          "expected": "Same approval and release, but the presented request's target is changed X->Y: refusal (request_binding_mismatch), no effect on Y, no receipt.",
+          "expected_code": "refused_request_binding_mismatch",
+          "expected_frozen_in_expected_json": "refused_request_binding_mismatch",
+          "kind": "negative",
+          "name": "mutated_request_refused_no_effect",
+          "observed": "execute=refusal:request_binding_mismatch; state_unchanged=True; receipts=0",
+          "observed_code": "refused_request_binding_mismatch",
+          "pass": true
+        }
+      ],
+      "evidence": {
+        "approved_request_digest": "sha256:aef185502547f8a0604c876c398c7477f4879614f06340e8fde6337eb3365814",
+        "mutated_request_digest": "sha256:326f887d1c8773cc3bba98e07aada34817f3095b9e5f6740c159b67001234c2d",
+        "refusal_code": "request_binding_mismatch"
+      },
+      "evidence_digest": "sha256:2ce0208bb21b84186489ca5dab5e15346fa537de4e60394a814eac6d5ba9a901",
+      "issue35_case": 2,
+      "strength": "Local record-layer strength: a self-contained fixture engine in this kit implements the claimed semantics. A pass establishes that the semantics are coherent and reproducible against frozen inputs. It establishes nothing about any deployed system; run the same cases against a real stack under Issue #31 to test production behavior.",
+      "test_id": "T2",
+      "title": "Altered request",
+      "verdict": "PASS"
+    },
+    {
+      "claim": "Query evidence and update evidence are different record kinds with different bindings; neither substitutes for the other. Scope note: that ordinary queries are unreceipted is this fixture's design convention for reads of standard-classification objects, not a universal security law \u2014 a disclosure-sensitive read can itself be consequential under a real policy, and in v0.3 a sensitive read is authorized and audited (see A3).",
+      "controls": [
+        {
+          "expected": "Two queries matching current state create query views and no receipts; the one authorized mutation produces a settlement receipt whose request digest differs from every query-view digest.",
+          "expected_code": "query_views_only_mutation_receipt_distinct",
+          "expected_frozen_in_expected_json": "query_views_only_mutation_receipt_distinct",
+          "kind": "positive",
+          "name": "queries_create_no_receipt_mutation_receipt_is_distinct",
+          "observed": "receipts_before_mutation=0; query_kinds=query_view,query_view; receipt_kind=settlement_receipt",
+          "observed_code": "query_views_only_mutation_receipt_distinct",
+          "pass": true
+        },
+        {
+          "expected": "A query view relabeled as a settlement receipt fails independent verification: the view carries no request binding at all (verifier code: unknown_request), so a query/view digest cannot be substituted for the mutation's authoritative transition receipt.",
+          "expected_code": "verification_failed_no_request_binding",
+          "expected_frozen_in_expected_json": "verification_failed_no_request_binding",
+          "kind": "negative",
+          "name": "relabeled_query_view_fails_receipt_verification",
+          "observed": "verify_receipt(forged) = (False, unknown_request)",
+          "observed_code": "verification_failed_no_request_binding",
+          "pass": true
+        }
+      ],
+      "evidence": {
+        "forged_verify_code": "unknown_request",
+        "query_views": [
+          {
+            "classification": "standard",
+            "history_len": 0,
+            "kind": "query_view",
+            "object": "obj-x",
+            "state_digest": "sha256:ff7828a94ba38a3a8762e967f11e49c060795725163ab04321969d84a951ee27"
+          },
+          {
+            "classification": "standard",
+            "history_len": 0,
+            "kind": "query_view",
+            "object": "obj-x",
+            "state_digest": "sha256:ff7828a94ba38a3a8762e967f11e49c060795725163ab04321969d84a951ee27"
+          }
+        ],
+        "receipt": {
+          "approval_digest": "sha256:d78d15ef761bbe63f07b266897248a90ef5fef14b638ffe60fdbe0b1f4a37583",
+          "effect": {
+            "object": "obj-x",
+            "poststate_digest": "sha256:1d29140b63c0ce7b641b95d285e2bb14a494c988ff485ccc71f17f01838c3496",
+            "prestate_digest": "sha256:ff7828a94ba38a3a8762e967f11e49c060795725163ab04321969d84a951ee27"
+          },
+          "kind": "settlement_receipt",
+          "request_digest": "sha256:5d6c9943573ff2dd93b3c829ff90af484ab0e4b80796e35b8e314f2fa22a379b",
+          "request_id": "req-5d6c9943573ff2dd",
+          "seq": 0,
+          "signature": "cecddb6733572abf0b69c284750d4ffa885b55972f9255b3622ee076ae97c32f"
+        }
+      },
+      "evidence_digest": "sha256:cc66120b6c8bc0f49933a0a6ec7d2289a9d9a8feed4fbed81cc48a1717d4336f",
+      "issue35_case": 3,
+      "strength": "Local record-layer strength: a self-contained fixture engine in this kit implements the claimed semantics. A pass establishes that the semantics are coherent and reproducible against frozen inputs. It establishes nothing about any deployed system; run the same cases against a real stack under Issue #31 to test production behavior.",
+      "test_id": "T3",
+      "title": "Query-vs-update evidence",
+      "verdict": "PASS"
+    },
+    {
+      "claim": "A lost acknowledgment leaves the effect UNKNOWN_EFFECT until independent readback; reconciliation resolves it from the record and never authorizes a second mutation on the strength of the lost response.",
+      "controls": [
+        {
+          "expected": "Effect commits; acknowledgment is lost, so the caller's status is UNKNOWN_EFFECT; readback reconciliation returns the standing receipt and the effect stands applied exactly once in this fixture's store.",
+          "expected_code": "unknown_effect_reconciled_single_application",
+          "expected_frozen_in_expected_json": "unknown_effect_reconciled_single_application",
+          "kind": "positive",
+          "name": "lost_ack_reconciles_by_readback_effect_applied_once",
+          "observed": "caller_status_after_loss=unknown_effect; retry=already_committed; store_mutations=1",
+          "observed_code": "unknown_effect_reconciled_single_application",
+          "pass": true
+        },
+        {
+          "expected": "A second, different mutation presented under the same idempotency key \u2014 the 'no response was seen, so send another' move \u2014 is refused; no second effect is authorized on the basis of a lost response.",
+          "expected_code": "refused_idempotency_conflict",
+          "expected_frozen_in_expected_json": "refused_idempotency_conflict",
+          "kind": "negative",
+          "name": "second_mutation_under_same_idempotency_key_refused",
+          "observed": "execute=refusal:idempotency_conflict; store_mutations=1",
+          "observed_code": "refused_idempotency_conflict",
+          "pass": true
+        }
+      ],
+      "evidence": {
+        "caller_status_after_loss": "unknown_effect",
+        "receipt": {
+          "approval_digest": "sha256:1bd916d8ba1b085a8f1d54be457cb65e6de4808f7503ff22ba1c095976b52043",
+          "effect": {
+            "object": "obj-x",
+            "poststate_digest": "sha256:4e0c61e9c9634a2f53355b2c9ab0d13613a6c422a074ed90ad211b64982a560e",
+            "prestate_digest": "sha256:ff7828a94ba38a3a8762e967f11e49c060795725163ab04321969d84a951ee27"
+          },
+          "kind": "settlement_receipt",
+          "request_digest": "sha256:adf1f1f8c683a5bcb30d4814fe84b32b6dc27badc3b99cb853bfeb97157c26e7",
+          "request_id": "req-adf1f1f8c683a5bc",
+          "seq": 0,
+          "signature": "5ed478bc73f7c70e5d83c5aa5e595302ca4f1476ad5d8347f11c5ddf640ea80b"
+        }
+      },
+      "evidence_digest": "sha256:4e1ac202f4c60bb3d24e251ed054498a164c567fdccf33cfe8f172bbaf06b3da",
+      "issue35_case": 4,
+      "strength": "Local record-layer strength: a self-contained fixture engine in this kit implements the claimed semantics. A pass establishes that the semantics are coherent and reproducible against frozen inputs. It establishes nothing about any deployed system; run the same cases against a real stack under Issue #31 to test production behavior. Exactly-once here is a property of this fixture's idempotency ledger over a local store; it is NOT evidence of exactly-once effects in any outside world.",
+      "test_id": "T4",
+      "title": "Lost acknowledgment",
+      "verdict": "PASS"
+    },
+    {
+      "claim": "Revoking an upstream authority contests derived state built on it through DECLARED dependencies, prevents new reliance on the revoked request, and leaves history and unrelated activity intact.",
+      "controls": [
+        {
+          "expected": "Revoking upstream A (history and A's receipt preserved, nothing erased) flags declared dependent D as contested, refuses new reliance on A (dependency_revoked), and still permits unrelated authorized activity.",
+          "expected_code": "declared_dependents_detected_new_reliance_refused_unrelated_allowed",
+          "expected_frozen_in_expected_json": "declared_dependents_detected_new_reliance_refused_unrelated_allowed",
+          "kind": "positive",
+          "name": "revocation_flags_declared_dependents_blocks_new_reliance_allows_unrelated",
+          "observed": "history_preserved=True; dependents_of_A=['req-ef996e747fd20af2']; D_status=contested_revoked_ancestry; D2=refusal:dependency_revoked; unrelated=ok",
+          "observed_code": "declared_dependents_detected_new_reliance_refused_unrelated_allowed",
+          "pass": true
+        },
+        {
+          "expected": "LIMIT, on the record: a write whose payload copies the revoked upstream's output but declares no dependence executes undetected. Dependents are found through declared dependence (or independent discoverability in a real system), never by universal tracing. This control passes by demonstrating the limit, not by denying it.",
+          "expected_code": "undeclared_dependence_not_detected_limit",
+          "expected_frozen_in_expected_json": "undeclared_dependence_not_detected_limit",
+          "kind": "negative",
+          "limit_demonstrated": true,
+          "name": "undeclared_dependence_limit_demonstrated",
+          "observed": "sneak_execute=ok; sneak_status=settled",
+          "observed_code": "undeclared_dependence_not_detected_limit",
+          "pass": true
+        }
+      ],
+      "evidence": {
+        "d2_refusal": "dependency_revoked",
+        "dependents_of_revoked": [
+          "req-ef996e747fd20af2"
+        ],
+        "derived_status_after_revocation": "contested_revoked_ancestry",
+        "revoked_request": "req-34748ed47d5c0a0e"
+      },
+      "evidence_digest": "sha256:5e8e4c20530085f0fc053dde6252e242f94bdd96098d98b463ab2158919448c6",
+      "issue35_case": 5,
+      "strength": "Local record-layer strength: a self-contained fixture engine in this kit implements the claimed semantics. A pass establishes that the semantics are coherent and reproducible against frozen inputs. It establishes nothing about any deployed system; run the same cases against a real stack under Issue #31 to test production behavior.",
+      "test_id": "T5",
+      "title": "Derived-state revocation",
+      "verdict": "PASS"
+    },
+    {
+      "claim": "In v0.3 the effect store is mediated at its own boundary: the only write path is the governed dispatch, and a bypass route's write is refused by the store itself, leaving state unchanged and a record of the attempt. (In v0.1/v0.2 the same write landed; T6 then passed by demonstrating the gap. The expectation changed because the semantics changed \u2014 that is what a new kit version means.)",
+      "controls": [
+        {
+          "expected": "A write through the gate produces a receipt, and the observer comparison (store history vs receipt ledger) reports no unreceipted mutations.",
+          "expected_code": "gated_write_receipted_observer_clean",
+          "expected_frozen_in_expected_json": "gated_write_receipted_observer_clean",
+          "kind": "positive",
+          "name": "gated_write_receipted_observer_clean",
+          "observed": "observer_flags=[]",
+          "observed_code": "gated_write_receipted_observer_clean",
+          "pass": true
+        },
+        {
+          "expected": "MEDIATION AT THE STORE (v0.3 correction of the v0.1/v0.2 coverage gap): a write through a route not wired to the gate is refused BY THE EFFECT STORE ITSELF (ungoverned_write) \u2014 the store accepts writes only under the dispatch capability the governed path mints. State still holds the gated value, the refused attempt stands in the store's boundary log, and the observer comparison stays clean because no ungoverned mutation exists to flag. Scope: API-level mediation inside a single-process fixture; it governs every write route this fixture exposes and claims nothing against in-process introspection of the fixture's own memory.",
+          "expected_code": "bypass_refused_store_unchanged_observer_clean",
+          "expected_frozen_in_expected_json": "bypass_refused_store_unchanged_observer_clean",
+          "kind": "negative",
+          "name": "bypass_refused_at_store_state_unchanged",
+          "observed": "bypass_landed=False; refusal=ungoverned_write; store_refusal=True; refused_attempts=[{'object': 'obj-x', 'via': 'direct', 'request_id': None}]; observer_flags=[]; receipts=1",
+          "observed_code": "bypass_refused_store_unchanged_observer_clean",
+          "pass": true
+        }
+      ],
+      "evidence": {
+        "gated_receipt_request": "req-0e9b364e3032c1e1",
+        "store_refused_attempts": [
+          {
+            "object": "obj-x",
+            "request_id": null,
+            "via": "direct"
+          }
+        ]
+      },
+      "evidence_digest": "sha256:7e7e93bda4a461a340114c1f2c00857b2dbf618f73d5ed220d450d34cf52fca3",
+      "issue35_case": 6,
+      "strength": "Local record-layer strength: a self-contained fixture engine in this kit implements the claimed semantics. A pass establishes that the semantics are coherent and reproducible against frozen inputs. It establishes nothing about any deployed system; run the same cases against a real stack under Issue #31 to test production behavior. This test measures mediation at the fixture store's boundary; it does not establish that every ungated action in any real system is prevented \u2014 that requires the store in that system to be mediated the same way, which is a property to examine there, not a conclusion to import from here.",
+      "test_id": "T6",
+      "title": "Ungated bypass (negative control)",
+      "verdict": "PASS"
+    }
+  ],
+  "version": "0.3.1"
+}
