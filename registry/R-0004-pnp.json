@@ -1,0 +1,40 @@
+{
+  "id": "R-0004",
+  "source_type": "registration_card",
+  "source": "F:\\投稿\\101\\物理\\555\\000语义落地\\语义落地1;  千禧难题的三层审查-判据操作化、管辖权裁决与悬置的解除条件\\最后1定稿.docx",
+  "source_locator": "第3章 登记 3.2（P/NP 案）",
+  "role": "millennium_case",
+  "object": {
+    "status": "已构造",
+    "text": "P 与 NP 两个语言类的构造性定义"
+  },
+  "claim": {
+    "status": "未确立",
+    "text": "P = NP（良定义不蕴含确立，依据第2章推论2.1）"
+  },
+  "certificate_status": "悬置（判定性证明协议缺失）",
+  "certificate_mode": "none",
+  "protocol_slots": [
+    {
+      "id": "D1",
+      "description": "判决性证明协议：一个可由检查器机械接受的、判定 P 与 NP 关系的证书格式",
+      "status": "missing",
+      "reason": "原文登记卡明确缺失此项；验证侧可核验不等于判定性协议存在"
+    }
+  ],
+  "budget": {
+    "t_seconds": 3600,
+    "L_records": 1000,
+    "k_independent_verifiers": 2,
+    "E_environment": "decision-problem certificate checker TBD",
+    "instantiated": true
+  },
+  "history": [
+    {
+      "at": "2026-11-27T16:45:00+08:00",
+      "event": "registered",
+      "actor": "ledger-initializer"
+    }
+  ],
+  "explicit_nonclaim": "不登记任何 P vs NP 真值判断"
+}
