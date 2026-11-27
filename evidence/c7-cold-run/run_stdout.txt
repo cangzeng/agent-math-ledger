@@ -1,0 +1,45 @@
+T1 Authorized update: PASS
+   [ok ] positive authorized_update_commits_with_request_bound_receipt: committed_with_bound_receipt
+   [ok ] negative execution_without_release_refused: refused_no_valid_release
+T2 Altered request: PASS
+   [ok ] positive exact_request_executes: committed_exact_request
+   [ok ] negative mutated_request_refused_no_effect: refused_request_binding_mismatch
+T3 Query-vs-update evidence: PASS
+   [ok ] positive queries_create_no_receipt_mutation_receipt_is_distinct: query_views_only_mutation_receipt_distinct
+   [ok ] negative relabeled_query_view_fails_receipt_verification: verification_failed_no_request_binding
+T4 Lost acknowledgment: PASS
+   [ok ] positive lost_ack_reconciles_by_readback_effect_applied_once: unknown_effect_reconciled_single_application
+   [ok ] negative second_mutation_under_same_idempotency_key_refused: refused_idempotency_conflict
+T5 Derived-state revocation: PASS
+   [ok ] positive revocation_flags_declared_dependents_blocks_new_reliance_allows_unrelated: declared_dependents_detected_new_reliance_refused_unrelated_allowed
+   [ok ] negative undeclared_dependence_limit_demonstrated: undeclared_dependence_not_detected_limit
+T6 Ungated bypass (negative control): PASS
+   [ok ] positive gated_write_receipted_observer_clean: gated_write_receipted_observer_clean
+   [ok ] negative bypass_refused_at_store_state_unchanged: bypass_refused_store_unchanged_observer_clean
+A1 Receipt-field completeness (adversarial, v0.2; signature leg added v0.3): PASS
+   [ok ] positive untouched_receipt_verifies: untouched_receipt_verified
+   [ok ] negative altered_stated_object_rejected: rejected_effect_object_mismatch
+   [ok ] negative altered_prestate_digest_rejected: rejected_prestate_digest_mismatch
+   [ok ] negative altered_sequence_number_rejected: rejected_seq_mismatch
+   [ok ] negative altered_approval_digest_rejected: rejected_approval_digest_mismatch
+   [ok ] negative altered_poststate_digest_rejected: rejected_no_matching_gated_effect
+   [ok ] negative resigned_with_published_key_rejected: rejected_receipt_signature_invalid
+A2 Multilevel revocation (adversarial, v0.2): PASS
+   [ok ] positive transitive_detection_reports_revoked_ancestry: detection_transitive_contested_ancestry
+   [ok ] negative reliance_through_c_refused: refused_dependency_revoked
+   [ok ] negative reliance_through_b_refused: refused_dependency_revoked
+   [ok ] negative direct_reliance_on_revoked_refused: refused_dependency_revoked
+   [ok ] positive unrelated_action_admitted: unrelated_admitted
+   [ok ] structural declared_cycle_unconstructible: cycle_unconstructible_content_digest_ids
+   [ok ] positive restart_carriage_preserves_enforcement: post_restart_reliance_refused_identical
+A3 Authorization completeness (adversarial, v0.3): PASS
+   [ok ] negative arbitrary_string_approver_refused: refused_approver_not_authorized
+   [ok ] negative withdrawn_approver_execution_refused: refused_approver_no_longer_authorized
+   [ok ] negative unauthenticated_actor_proposal_refused: refused_actor_not_authenticated
+   [ok ] negative unauthorized_sensitive_read_refused_and_audited: refused_read_not_authorized_audited
+   [ok ] positive authorized_sensitive_read_served_and_audited: authorized_sensitive_read_served_audited
+A4 Actor currency at execution (adversarial, v0.3.1): PASS
+   [ok ] negative withdrawn_actor_execution_refused: refused_actor_no_longer_authorized
+   [ok ] positive current_actor_execution_commits: current_actor_committed
+   [ok ] positive actor_withdrawal_after_effect_no_rollback: effect_stands_receipt_verifies
+controls 12/12 passed; adversarial controls 22/22 passed; results_digest sha256:f51c98c7dcb7489b2cd17c60875c4a4bf9625f204b3eb51c15cb3d449092b83f
