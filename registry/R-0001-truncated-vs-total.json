@@ -1,0 +1,47 @@
+{
+  "id": "R-0001",
+  "source_type": "theorem",
+  "source": "F:\\投稿\\101\\物理\\555\\000语义落地\\语义落地1;  千禧难题的三层审查-判据操作化、管辖权裁决与悬置的解除条件\\最后1定稿.docx",
+  "source_locator": "第2章 定理1（截断核验与整体可判定性的分离）【已证】",
+  "role": "theorem_already_proved",
+  "object": {
+    "status": "已构造",
+    "text": "Kleene 正规形谓词 T(e,x,y)；S(e,m):=∀x≤m ∃y T(e,x,y)；Tot(e):=∀m S(e,m)"
+  },
+  "claim": {
+    "status": "已确立",
+    "text": "真截断命题携带有限机械证书，但 TOT={e:Tot(e)} 是 Π₂ 完全且不可判定；实例级可核验不蕴含整体可判定"
+  },
+  "certificate_status": "已验证（作者原文标【已证】，非本仓库独立核验）",
+  "certificate_mode": "none_internal_check",
+  "protocol_slots": [
+    {
+      "id": "P1",
+      "description": "在 Lean/Mathlib 中给出 T 原始递归性与 S 为 Σ₁ 关系的机器可核证明",
+      "status": "missing",
+      "reason": "原文证明为文本论证，本仓库未运行检查器"
+    },
+    {
+      "id": "P2",
+      "description": "TOT 的 Π₂ 完全性形式化及不可判定性推导的机器证书",
+      "status": "missing",
+      "reason": "同上"
+    }
+  ],
+  "budget": {
+    "t_seconds": null,
+    "L_records": null,
+    "k_independent_verifiers": null,
+    "E_environment": null,
+    "instantiated": false
+  },
+  "history": [
+    {
+      "at": "2026-11-27T16:45:00+08:00",
+      "event": "registered",
+      "actor": "ledger-initializer",
+      "note": "从原文定理1逐字摘录，未声称本仓库独立核验"
+    }
+  ],
+  "falsification_relevance": "本行是【已证】定理，不作为 L0/L1 闭合任务；它的作用是给四案登记提供管辖护栏"
+}
