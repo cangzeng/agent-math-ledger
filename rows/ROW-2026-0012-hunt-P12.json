@@ -1,0 +1,56 @@
+{
+  "row_id": "ROW-2026-0012",
+  "object_registration": {
+    "status": "constructed",
+    "text": "Hunt the planted defective Lucas-Lehmer trace: locate the interior value that was altered.",
+    "statement_en": "Hunt the planted defective Lucas-Lehmer trace: locate the interior value that was altered.",
+    "source_anchor_zh": "checker/beacon_lucas_lehmer.py@8e3cdd2f0575a3b4e12d282c3237e958c9b2e5a2 (tool artifact, not corpus)"
+  },
+  "proposition_registration": {
+    "status": "author_claimed",
+    "text": "Hunt the planted defective Lucas-Lehmer trace: locate the interior value that was altered.",
+    "statement_en": "Hunt the planted defective Lucas-Lehmer trace: locate the interior value that was altered.",
+    "source_anchor_zh": "checker/beacon_lucas_lehmer.py@8e3cdd2f0575a3b4e12d282c3237e958c9b2e5a2 (tool artifact, not corpus)",
+    "translation_debt": "registrar-authored English rendering; third-party re-run clause applies"
+  },
+  "certificate_status": {
+    "state": "SUSPENDED",
+    "certificates": [],
+    "marker_scope": "certificate-only",
+    "alignment": {
+      "L0": "located: tool artifact + planted sample",
+      "L1": "partial: claim parsed",
+      "L2": "open: interior defect not located",
+      "L3": "advisory: 无记录"
+    }
+  },
+  "protocol_slots": [
+    {
+      "id": "T3-hunt-P12",
+      "class": "Sigma",
+      "status": "open",
+      "task": "P12 presents a self-consistent Sigma trace whose hash differs from the true trace. Rerun the beacon script, diff the interior sequence, identify the altered value. Refutation earns the same weight as the certificate class it kills.",
+      "present": [
+        "planted sample at rows/planted/P12.json",
+        "true beacon script"
+      ],
+      "missing": [
+        "defect location"
+      ]
+    }
+  ],
+  "budget": {
+    "t": 1800,
+    "L": 10,
+    "k": 1,
+    "E": "python3 >=3.8; checker/beacon_lucas_lehmer.py"
+  },
+  "history": [
+    {
+      "timestamp": "2026-11-28T11:00:00Z",
+      "event": "registered",
+      "actor": "registrar",
+      "note": "stocking wave: multi-tier bounties; registrar-authored: excluded from demand evidence"
+    }
+  ]
+}
