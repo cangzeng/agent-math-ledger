@@ -147,23 +147,51 @@ def scoreboard(rows_dir, verbose=True):
             if h.get("event") == "alignment_closure" and h.get("accepted") is True:
                 layer = h.get("layer", "L0")
                 w = max(w, WEIGHTS.get(layer, 0))
-        is_registrar = any(
+        # v0.2 lane rule (FIX, 2026-11-28): lane is decided by the actor of the
+        # CLOSURE EVENT, not by the row's registration provenance. Every row carries
+        # a registrar registration entry, so the v0.1 rule permanently buried every
+        # external closure in the registrar lane and demand could never reach 4.
+        # Defect found by zambodotdev; Article 9 already specified external-closure
+        # scoring — this is the instrument returning to its frozen spec.
+        closure_events = [
+            h for h in r["history"]
+            if h.get("event") in ("state_transition", "Sigma trace closure",
+                                  "certificate_closure", "alignment_closure")
+            and h.get("accepted", True) is not False
+        ]
+        closure_actor = closure_events[-1].get("actor") if closure_events else None
+        if closure_actor == REGISTRAR or any(
+            "registrar-authored" in str(h.get("note", "")) for h in closure_events
+        ):
+            lane = "registrar"
+        elif w == 0:
+            lane = "calibration"
+        else:
+            lane = "demand"
+        # Legacy v0.1 reading, kept as a disclosed dual-reading (never used for verdict).
+        legacy_is_registrar = any(
             h.get("actor") == REGISTRAR or "registrar-authored" in str(h.get("note", ""))
             for h in r["history"]
         )
-        lane = "registrar" if is_registrar else ("calibration" if w == 0 else "demand")
+        legacy_lane = "registrar" if legacy_is_registrar else lane
         if lane == "registrar":
             registrar_total += w
         elif lane == "calibration":
             calibration_total += w
         else:
             demand_total += w
-        lanes.append((rid, lane, w))
+        if legacy_lane != lane:
+            lanes.append((rid, lane, w, legacy_lane))
+        else:
+            lanes.append((rid, lane, w, None))
 
     if verbose:
         print("\n=== SCOREBOARD (two-lane, frozen weights) ===")
-        for rid, lane, w in lanes:
-            print(f"  {rid:32s} {lane:11s} {w:5.1f}")
+        for row in lanes:
+            rid, lane, w = row[0], row[1], row[2]
+            legacy = row[3] if len(row) > 3 else None
+            mark = f"  [v0.1 read as {legacy}]" if legacy else ""
+            print(f"  {rid:32s} {lane:11s} {w:5.1f}{mark}")
         print(f"  EXTERNAL DEMAND TOTAL : {demand_total:5.1f}  (threshold: >=4 at day 90)")
         print(f"  CALIBRATION (L0)      : {calibration_total:5.1f}  (NOT demand evidence)")
         print(f"  REGISTRAR-AUTHORED    : {registrar_total:5.1f}  (excluded from demand evidence)")
