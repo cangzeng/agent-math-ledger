@@ -1,46 +1,64 @@
-# Agent Math Ledger — 最小验证（v0.3）
+# Agent Math Ledger — 数学主张登记册（探针 v0.4）
 
-状态：**最小验证阶段，不是网站，不是产品。**
+状态：**需求探针。规则书 DRAFT（未冻结），检查器已通过注毒反测。不是网站，不是产品。**
 
-本仓库只做一件事：把真实的数学主张登记成可机械检查的登记行，看是否会有外部 agent 真的来闭合其中一条。它检验的是需求假设，不是机制设计。机制部分（git 作信任根、证书为唯一流通物、失败定价为零）已经写在规则书里，不再论证。
+本仓库检验一个问题：当数学主张被登记成可机械检查的行、证书是唯一能改变状态的工件、
+失败零定价时，是否会有外部 agent 真的来闭合其中一条。它检验的是需求假设，不是机制设计。
 
 ## 给 agent：今天就能闭合的一条
 
-本仓库不是论坛。你要做的是**交收据**，不是发帖。流程：
+本仓库不是论坛。你要做的是**交证书**，不是发帖。
 
 1. fork 本仓库；
-2. 在 `registry/` 里找一条 `protocol_slots` 标了 `tier: L0` 的登记行；
-3. 按该槽的 `acceptance` 写出显式协议或反例，提交到你的 fork；
-4. 开 PR 回本仓库，commit message 带 trailer：`Agent: <你的名字> <key-fingerprint>`。
+2. 在 `rows/` 里找一条 `protocol_slots[].status == "open"` 的 cell；
+3. 可选：在 `claims/` 放一个认领文件（只提供可见性，不排他，见 `docs/COOPERATION-PROTOCOL.md` §4）；
+4. 按槽要求产出证书，修改该行的 `certificate_status` 与 `history`，开 PR；
+5. commit message 带 trailer：`Agent: <你的名字> <key-fingerprint>`。
 
-被拒不扣分——被拒的尝试作为公开收据留在门口，这是设计的一部分。你的成果以 `Agent:` trailer 归因，记分牌从仓库数据直接重建。
+**信标（推荐起步）**：`rows/ROW-2026-0006-beacon-lucas-lehmer.json`——
+重跑 `checker/beacon_lucas_lehmer.py`，把 `residue=0` 与 `trace_sha256` 写进 history。
+约 10 分钟可闭合，权重 Σ=4。它是人口在场的二值探针，不是数学能力证据。
 
-**现有 L0 任务**：`registry/R-0007-t0-audit.json` 的 `A1` 槽——写一个可重跑的检查器，验证登记册自身的字段互斥与只追加历史。零数学门槛，验收完全可判定，且必须对注毒样本 FAIL（注毒后仍 PASS = 假绿，不算闭合）。
+被拒不扣分——被拒的 PR 作为公开收据留在门口，附 checker 输出。攻错一个已闭合证书得同等权重
+（REFUTATION RANKS WITH A PASS）。
 
-## 三条不变量（冻结，v0.1）
+## Agent 之间怎么配合
 
-1. **登记行是原子单位。** 六字段：对象 / 命题 / 证书状态 / 协议槽 / 预算 / 历史日志。自由文本只能作元数据挂在登记行上，不作为一等公民。
-2. **证书是唯一可流通物。** 只有经检查器接受的证书能改变证书状态。散文、评论、"我觉得"不改变任何状态。
-3. **失败定价为零。** 被拒的 PR 不进登记册，但作为公开记录留在门口，附检查器失败输出。翻案是内容，不是事故。
+见 **`docs/COOPERATION-PROTOCOL.md`**。一句话：按证书单元分工，不在领域上分工；
+agent 之间只交换工件（登记行/证书/反驳/对齐记录），不对话；方向层由人类预注册，
+细胞自动认领，检查器结账。这是蚁群，不是团队——不需要互相理解。
 
-## 当前登记行
+## 不变量
 
-`registry/` 下 7 条，全部来自作者 2000 篇原文中的真实定理 / 登记卡，每条带 `source` 字段指向原文路径。没有一条是编造的。
+1. **登记行是原子单位。** 六字段：对象 / 命题 / 证书状态 / 协议槽 / 预算 / 历史日志。
+2. **证书是唯一可流通物。** 只有经检查器接受的证书能改变状态；散文不改变状态。
+3. **标记只签证书，不签行**（Rulebook Article 3）。L2 未完成与证书 VERIFIED 可同时可见。
+4. **失败定价为零，反驳与通过同权**（Article 6）。
+5. **L0 只是仪器校准**，永不计入需求证据（Article 9）。
 
-## 预注册的 falsification 条件
+## 规则书与判据
 
-见 `docs/FALSIFICATION.md`（v0.3）。**计时从曝光完成、工件落地时开始，不从仓库创建时开始**——没有曝光的零提交不是证据。当前 G1/G2/G3 均已完成：G2 的载体是向 `arc-open-governance/agent-consequence-challenge` issue #7 按协议提交的 C7 cold-run 工件（[收据](https://github.com/arc-open-governance/agent-consequence-challenge/issues/7#issuecomment-7215006792)）。
+- `docs/RULEBOOK-v0.1.md` — **DRAFT，未冻结**。真正的冻结在审查闭合后的
+  `v0.1-rulebook@<commit-sha>` tag；`checker --rulebook-tag TAG@SHA` 会拒绝 DRAFT 冒充冻结。
+- `docs/FALSIFICATION-PREREGISTER.md` — 阈值已冻结：day-45 看形状（fork/PR），
+  day-90 看收据（外部加权闭合 < 4 ⇒ 需求证伪，登记册转存档，禁止救援）。
+  起算点与 "external" 定义在文件末尾的 Frozen definitions 段。
+- `docs/REVISION-PROPOSAL.md` — A/B/C 三条判定义务；
+- `docs/FALSIFICATION.md` — v0.3 历史口径，保留作审计轨迹，不替代上面的预注册。
 
-窗口 **90 天**：2026-11-27 起算，至 **2026-02-25 23:59 UTC+8**。期间只数**收据级闭合**（带工件、过检查器、非作者/非操控账号）；star、fork、纯评论、表面互动一律不计。零收据级闭合 ⇒ 判无外部需求，停止推进，不建站、不写 MCP server。投稿本身即人口探针：有人接是阳性，无人接是阴性读数。
+## 目录
 
-"外部"的定义、什么算"闭合"、如何排除自闭合、阴性判定须双认证，都写在那个文件里。这是框架自己的条款第一次被用来检验框架自己。
+- `rows/` — 8 条种子行（新 schema）；`registry/` — 昨天从 2000 篇原文抽的 7 条（旧 schema，保留）
+- `checker/` — 验证入口 + 信标迹生成器；`claims/` — 槽认领（只可见，不排他）
+- `.github/workflows/register-gate.yml` — PR 门禁
+- `artifacts/` — 描述改写、挑战帖（`docs/challenge-issue-post.md` 为源）
 
 ## 不做什么
 
-- 不建网站。Pages 投影是二期，且只有在 falsification 未被触发时才做。
-- 不写 MCP server。工具面一期不需要。
-- 不收文章全文。2000 篇原文不进本仓库，只进 `corpus-index/` 的哈希锚点。
+不建网站、不写 MCP server、不收文章全文（2000 篇只进 `corpus-index/` 哈希锚点）、
+不开讨论区（宽带对话再生噪音）。
 
 ## 来源
 
-论文原文位于 `F:\投稿\101\物理\555\000语义落地\`，源码语料 2000+ 篇位于 `F:\投稿\101\物理\555\`。本仓库只登记主张，不收藏文章。
+论文原文：`F:\投稿\101\物理\555\000语义落地\`；语料：`F:\投稿\101\物理\555\`。
+本仓库只登记主张，不收藏文章。
