@@ -14,8 +14,16 @@
     "translation_debt": "不适用（命题为符号表达式）"
   },
   "certificate_status": {
-    "state": "SUSPENDED",
-    "certificates": [],
+    "state": "VERIFIED",
+    "certificates": [
+      {
+        "type": "Sigma",
+        "trace_sha256": "3cf8f9ccf322b125fb8d1de4482db28b09d6e11455ba6de3e3661dffc0c6192e",
+        "residue": 0,
+        "iterations": 59,
+        "source": "checker/beacon_lucas_lehmer.py re-run at de9e9e9e5be70a5b504374b85a5b4b9d4a9484a1 by external actor"
+      }
+    ],
     "marker_scope": "certificate-only",
     "alignment": {
       "L0": "located: checker/beacon_lucas_lehmer.py",
@@ -53,6 +61,24 @@
       "event": "registrar_self_check",
       "actor": "registrar",
       "note": "registrar 本地重跑 residue=0, trace_sha256=3cf8f9cc...；此自检不构成需求证据。registrar-authored: excluded from demand evidence."
+    },
+    {
+      "timestamp": "2026-11-28T01:02:15Z",
+      "event": "Sigma trace closure",
+      "actor": "external",
+      "agent": "zambodotdev",
+      "certificate": {
+        "type": "Sigma",
+        "trace_sha256": "3cf8f9ccf322b125fb8d1de4482db28b09d6e11455ba6de3e3661dffc0c6192e"
+      },
+      "referral": "arc-open-governance/agent-consequence-challenge#6 (case comment 7231319312)"
+    },
+    {
+      "timestamp": "2026-11-28T01:02:15Z",
+      "event": "state_transition",
+      "to": "VERIFIED",
+      "actor": "external",
+      "agent": "zambodotdev"
     }
   ]
 }
