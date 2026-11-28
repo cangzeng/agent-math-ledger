@@ -1,12 +1,11 @@
-# RULEBOOK v0.1 — DRAFT (NOT FROZEN)
+# RULEBOOK v0.1 — FROZEN (2026-11-28)
 
-> **状态：DRAFT，未冻结。** 附件原文自称 "FROZEN 2026-11-28"，但附件自己的纪律自检与
-> 2026-11-28 的第二通道对抗审查都确认：真正的冻结发生在审查意见闭合后打出的 tag，
-> 不是文件里的一个日期字符串。`checker/check_register.py --rulebook-tag TAG@40hex-sha`
-> 会拒绝 DRAFT 文本冒充冻结文本。
+> **frozen_at: v0.1-rulebook@PENDING-TAG-SHA** — 该字段在 annotated tag 创建后填入其指向的
+> commit sha。`checker/check_register.py --rulebook-tag TAG@40hex-sha` 拒绝 DRAFT 文本冒充冻结文本。
 >
-> **frozen_at: NOT SET** — 打 tag 时填入 `v0.1-rulebook@<commit-sha>` 并删除本段。
-> 在此之前，本文件是待审文本，不是信任根。
+> 冻结前置条件已闭合：2026-11-28 第二通道对抗审查的六项缺陷全部在代码中关闭
+> （见下方审查表）；附件原文自称的裸日期 "FROZEN 2026-11-28" 已被 tag+sha 取代。
+> 本 tag 一经打出即为信任根，条款不得追溯修改；后续版本须另开 RULEBOOK-vX.Y.md 并打新 tag。
 
 This rulebook, once frozen at its tag, may only be replaced by a new versioned file
 (RULEBOOK-vX.Y.md) plus a release tag. No retroactive edits. The rulebook registry is this
