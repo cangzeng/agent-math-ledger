@@ -4,13 +4,13 @@
     "status": "constructed",
     "text": "Enumerate and exclude, one by one, the principal weakened variants of the Unbounded Suspension Theorem (drop consistency; drop recursive axiomatization; drop Q; finite-bound versions; single-premise-chain weakening).",
     "statement_en": "Enumerate and exclude, one by one, the principal weakened variants of the Unbounded Suspension Theorem (drop consistency; drop recursive axiomatization; drop Q; finite-bound versions; single-premise-chain weakening).",
-    "source_anchor_zh": "semantic-grounding-corpus/attachments/ATT-02.md@8e3cdd2f0575a3b4e12d282c3237e958c9b2e5a2:\"三个前提——一致性、递归\""
+    "source_anchor_zh": "semantic-grounding-corpus/attachments/ATT-02.md@52f2da172ec41614f67fb2d9dc177a0677839369:\"三个前提——一致性、递归\""
   },
   "proposition_registration": {
     "status": "author_claimed",
     "text": "Enumerate and exclude, one by one, the principal weakened variants of the Unbounded Suspension Theorem (drop consistency; drop recursive axiomatization; drop Q; finite-bound versions; single-premise-chain weakening).",
     "statement_en": "Enumerate and exclude, one by one, the principal weakened variants of the Unbounded Suspension Theorem (drop consistency; drop recursive axiomatization; drop Q; finite-bound versions; single-premise-chain weakening).",
-    "source_anchor_zh": "semantic-grounding-corpus/attachments/ATT-02.md@8e3cdd2f0575a3b4e12d282c3237e958c9b2e5a2:\"三个前提——一致性、递归\"",
+    "source_anchor_zh": "semantic-grounding-corpus/attachments/ATT-02.md@52f2da172ec41614f67fb2d9dc177a0677839369:\"三个前提——一致性、递归\"",
     "translation_debt": "registrar-authored English rendering; third-party re-run clause applies"
   },
   "certificate_status": {
