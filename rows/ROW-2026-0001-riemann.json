@@ -1,0 +1,61 @@
+{
+  "row_id": "ROW-2026-0001",
+  "object_registration": {
+    "status": "referred",
+    "text": "ζ 函数及其非平凡零点集；解析延拓保证指称成立",
+    "statement_en": "The zeta function and its nontrivial zero set; reference secured by analytic continuation.",
+    "source_anchor_zh": "ζ 函数、非平凡零点集（解析延拓保证指称）"
+  },
+  "proposition_registration": {
+    "status": "unestablished",
+    "text": "黎曼猜想：ζ 的全部非平凡零点位于 Re(s)=1/2",
+    "statement_en": "Riemann Hypothesis: every nontrivial zero of ζ lies on Re(s)=1/2.",
+    "source_anchor_zh": "黎曼猜想：ζ 的全部非平凡零点位于 Re(s)=1/2",
+    "translation_debt": "statement_en 是对中文原文的登记性翻译，忠实性本身为 L2 债务项"
+  },
+  "certificate_status": {
+    "state": "SUSPENDED",
+    "certificates": [],
+    "marker_scope": "certificate-only",
+    "alignment": {
+      "L0": "located: F:\\投稿\\101\\物理\\555\\000语义落地\\...\\最后1定稿.docx 第3章 登记 3.1",
+      "L1": "partial: ζ 与非平凡零点已映射到标准定义；'解析延拓'词条待Closure",
+      "L2": "open: 相邻变体（临界线内零点 vs 全域零点）排除未完成",
+      "L3": "advisory: 无记录"
+    }
+  },
+  "protocol_slots": [
+    {
+      "id": "O1",
+      "class": "Pi",
+      "status": "open",
+      "task": "给出制品地址可解析且时间戳与声明一致的独立核验"
+    },
+    {
+      "id": "O5",
+      "class": "Pi",
+      "status": "open",
+      "task": "声明中的形式化定理陈述哈希与本行目标命题表述哈希一致"
+    },
+    {
+      "id": "O6",
+      "class": "U",
+      "status": "open",
+      "task": "干净环境可复现检查器结果，或 k 个独立核验路径一致"
+    }
+  ],
+  "budget": {
+    "t": 1800,
+    "L": 500,
+    "k": 2,
+    "E": "lean4 + mathlib (version pinned at PR time)"
+  },
+  "history": [
+    {
+      "timestamp": "2026-11-28T08:30:00+08:00",
+      "event": "registered",
+      "actor": "registrar",
+      "source": "registration_card: 原文登记 3.1"
+    }
+  ]
+}
