@@ -1,0 +1,55 @@
+{
+  "row_id": "ROW-2026-0017",
+  "object_registration": {
+    "status": "constructed",
+    "text": "Hunt the planted lane-poisoning defect: identify the forged external closure actor in P17.",
+    "statement_en": "Hunt the planted lane-poisoning defect: identify the forged external closure actor in P17.",
+    "source_anchor_zh": "semantic-grounding-corpus/attachments/ATT-09.md@8e3cdd2f0575a3b4e12d282c3237e958c9b2e5a2:\"可翻转的三值状态机：已验\""
+  },
+  "proposition_registration": {
+    "status": "author_claimed",
+    "text": "Hunt the planted lane-poisoning defect: identify the forged external closure actor in P17.",
+    "statement_en": "Hunt the planted lane-poisoning defect: identify the forged external closure actor in P17.",
+    "source_anchor_zh": "semantic-grounding-corpus/attachments/ATT-09.md@8e3cdd2f0575a3b4e12d282c3237e958c9b2e5a2:\"可翻转的三值状态机：已验\"",
+    "translation_debt": "registrar-authored English rendering; third-party re-run clause applies"
+  },
+  "certificate_status": {
+    "state": "SUSPENDED",
+    "certificates": [],
+    "marker_scope": "certificate-only",
+    "alignment": {
+      "L0": "located: rows/planted/P17.json + anchor ATT-09",
+      "L1": "partial: claim parsed",
+      "L2": "open: forgery not identified",
+      "L3": "advisory: 无记录"
+    }
+  },
+  "protocol_slots": [
+    {
+      "id": "T3-hunt-P17",
+      "class": "Sigma",
+      "status": "open",
+      "task": "P17 records a Sigma closure credited to an external actor while history shows actor=registrar. Identify the forgery and state which lane the closure must be booked to under v0.2.",
+      "present": [
+        "planted sample at rows/planted/P17.json"
+      ],
+      "missing": [
+        "actor forgery identified"
+      ]
+    }
+  ],
+  "budget": {
+    "t": 900,
+    "L": 10,
+    "k": 1,
+    "E": "rulebook v0.2 Article 2/9"
+  },
+  "history": [
+    {
+      "timestamp": "2026-11-28T11:00:00Z",
+      "event": "registered",
+      "actor": "registrar",
+      "note": "stocking wave: multi-tier bounties; registrar-authored: excluded from demand evidence"
+    }
+  ]
+}
