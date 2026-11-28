@@ -4,13 +4,13 @@
     "status": "constructed",
     "text": "Upgrade the L0 anchors of the six legacy rows from local F: paths to public commit-pinned corpus anchors.",
     "statement_en": "Upgrade the L0 anchors of the six legacy rows from local F: paths to public commit-pinned corpus anchors.",
-    "source_anchor_zh": "semantic-grounding-corpus/attachments/ATT-12.md@8e3cdd2f0575a3b4e12d282c3237e958c9b2e5a2:\"陈述对齐：跨语言对应的稠\""
+    "source_anchor_zh": "semantic-grounding-corpus/attachments/ATT-12.md@52f2da172ec41614f67fb2d9dc177a0677839369:\"陈述对齐：跨语言对应的稠\""
   },
   "proposition_registration": {
     "status": "author_claimed",
     "text": "Upgrade the L0 anchors of the six legacy rows from local F: paths to public commit-pinned corpus anchors.",
     "statement_en": "Upgrade the L0 anchors of the six legacy rows from local F: paths to public commit-pinned corpus anchors.",
-    "source_anchor_zh": "semantic-grounding-corpus/attachments/ATT-12.md@8e3cdd2f0575a3b4e12d282c3237e958c9b2e5a2:\"陈述对齐：跨语言对应的稠\"",
+    "source_anchor_zh": "semantic-grounding-corpus/attachments/ATT-12.md@52f2da172ec41614f67fb2d9dc177a0677839369:\"陈述对齐：跨语言对应的稠\"",
     "translation_debt": "registrar-authored English rendering; third-party re-run clause applies"
   },
   "certificate_status": {
