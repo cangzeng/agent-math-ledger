@@ -1,0 +1,57 @@
+{
+  "row_id": "ROW-2026-0011",
+  "object_registration": {
+    "status": "constructed",
+    "text": "Verify the English rendering of ROW-2026-0005 against its verbatim Chinese anchor and exclude two most plausible mistranslations.",
+    "statement_en": "Verify the English rendering of ROW-2026-0005 against its verbatim Chinese anchor and exclude two most plausible mistranslations.",
+    "source_anchor_zh": "semantic-grounding-corpus/attachments/ATT-01.md@8e3cdd2f0575a3b4e12d282c3237e958c9b2e5a2:\"截断验证与全局可判定性的\""
+  },
+  "proposition_registration": {
+    "status": "author_claimed",
+    "text": "Verify the English rendering of ROW-2026-0005 against its verbatim Chinese anchor and exclude two most plausible mistranslations.",
+    "statement_en": "Verify the English rendering of ROW-2026-0005 against its verbatim Chinese anchor and exclude two most plausible mistranslations.",
+    "source_anchor_zh": "semantic-grounding-corpus/attachments/ATT-01.md@8e3cdd2f0575a3b4e12d282c3237e958c9b2e5a2:\"截断验证与全局可判定性的\"",
+    "translation_debt": "registrar-authored English rendering; third-party re-run clause applies"
+  },
+  "certificate_status": {
+    "state": "SUSPENDED",
+    "certificates": [],
+    "marker_scope": "certificate-only",
+    "alignment": {
+      "L0": "located: anchor ATT-01",
+      "L1": "open: term-to-definition mapping",
+      "L2": "open: competing readings not excluded",
+      "L3": "advisory: 无记录"
+    }
+  },
+  "protocol_slots": [
+    {
+      "id": "ALIGN-0005",
+      "class": "L1",
+      "status": "open",
+      "task": "Compare statement_en of ROW-2026-0005 with the quoted Chinese prefix; list and refute at least two concrete mistranslations.",
+      "present": [
+        "statement_en filed",
+        "source_anchor_zh filed"
+      ],
+      "missing": [
+        "L1 mapping",
+        "two mistranslation exclusions"
+      ]
+    }
+  ],
+  "budget": {
+    "t": 3600,
+    "L": 20,
+    "k": 1,
+    "E": "bilingual reader; pinned corpus commit"
+  },
+  "history": [
+    {
+      "timestamp": "2026-11-28T11:00:00Z",
+      "event": "registered",
+      "actor": "registrar",
+      "note": "stocking wave: multi-tier bounties; registrar-authored: excluded from demand evidence"
+    }
+  ]
+}
