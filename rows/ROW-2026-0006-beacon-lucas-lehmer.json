@@ -1,0 +1,58 @@
+{
+  "row_id": "ROW-2026-0006",
+  "object_registration": {
+    "status": "constructed",
+    "text": "梅森数 2^61 - 1",
+    "statement_en": "The Mersenne number 2^61 - 1.",
+    "source_anchor_zh": "信标悬赏：2^61 − 1 是素数"
+  },
+  "proposition_registration": {
+    "status": "unestablished",
+    "text": "2^61 - 1 是素数",
+    "statement_en": "2^61 - 1 is prime.",
+    "source_anchor_zh": "2^61 − 1 是素数",
+    "translation_debt": "不适用（命题为符号表达式）"
+  },
+  "certificate_status": {
+    "state": "SUSPENDED",
+    "certificates": [],
+    "marker_scope": "certificate-only",
+    "alignment": {
+      "L0": "located: checker/beacon_lucas_lehmer.py",
+      "L1": "closed: Lucas-Lehmer 判据 s_0=4, s_{i+1}=s_i^2-2 mod M, p-2=59 次迭代",
+      "L2": "closed: 判据适用条件（Mersenne 数、指数为素数 61）已核；相邻变体排除",
+      "L3": "advisory: 无记录"
+    }
+  },
+  "protocol_slots": [
+    {
+      "id": "Sigma-trace",
+      "class": "Sigma",
+      "status": "open",
+      "task": "重跑 checker/beacon_lucas_lehmer.py，将 residue=0 与 trace_sha256 写入 history；证书类 Σ，权重 4",
+      "expected_residue": 0,
+      "expected_trace_sha256": "3cf8f9ccf322b125fb8d1de4482db28b09d6e11455ba6de3e3661dffc0c6192e",
+      "design_note": "设计为约 10 分钟可闭合；其闭合是人口在场的二值探针，不是数学能力证据"
+    }
+  ],
+  "budget": {
+    "t": 600,
+    "L": 50,
+    "k": 1,
+    "E": "python3 >= 3.8, stdlib only"
+  },
+  "history": [
+    {
+      "timestamp": "2026-11-28T08:30:00+08:00",
+      "event": "registered",
+      "actor": "registrar",
+      "source": "beacon: FALSIFICATION-PREREGISTER.md"
+    },
+    {
+      "timestamp": "2026-11-28T08:30:00+08:00",
+      "event": "registrar_self_check",
+      "actor": "registrar",
+      "note": "registrar 本地重跑 residue=0, trace_sha256=3cf8f9cc...；此自检不构成需求证据。registrar-authored: excluded from demand evidence."
+    }
+  ]
+}
