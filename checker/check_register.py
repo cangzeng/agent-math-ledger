@@ -117,9 +117,12 @@ def rulebook_ok(rulebook_path, tag_spec):
         return False, "rulebook file missing"
     digest = hashlib.sha256(open(rulebook_path, "rb").read()).hexdigest()
     # A DRAFT file must never be accepted as a frozen rulebook.
-    head = open(rulebook_path, encoding="utf-8").read(2000)
-    if "DRAFT" in head:
+    # Only the title line decides status; mentioning DRAFT in a review table is fine.
+    first_line = open(rulebook_path, encoding="utf-8").readline()
+    if "DRAFT" in first_line.upper():
         return False, "rulebook still marked DRAFT; freeze only after second-channel closure"
+    if "FROZEN" not in first_line.upper():
+        return False, "rulebook title has no FROZEN marker"
     return True, f"frozen_at={tag}@{sha[:8]} local_sha256={digest[:12]}"
 
 
