@@ -1,0 +1,55 @@
+{
+  "row_id": "ROW-2026-0015",
+  "object_registration": {
+    "status": "constructed",
+    "text": "Enumerate and exclude the principal weakened variants of the coding-rigidity theorem for the Riemann Hypothesis.",
+    "statement_en": "Enumerate and exclude the principal weakened variants of the coding-rigidity theorem for the Riemann Hypothesis.",
+    "source_anchor_zh": "semantic-grounding-corpus/attachments/ATT-06.md@8e3cdd2f0575a3b4e12d282c3237e958c9b2e5a2:\"编码刚性定理进一步证明该\""
+  },
+  "proposition_registration": {
+    "status": "author_claimed",
+    "text": "Enumerate and exclude the principal weakened variants of the coding-rigidity theorem for the Riemann Hypothesis.",
+    "statement_en": "Enumerate and exclude the principal weakened variants of the coding-rigidity theorem for the Riemann Hypothesis.",
+    "source_anchor_zh": "semantic-grounding-corpus/attachments/ATT-06.md@8e3cdd2f0575a3b4e12d282c3237e958c9b2e5a2:\"编码刚性定理进一步证明该\"",
+    "translation_debt": "registrar-authored English rendering; third-party re-run clause applies"
+  },
+  "certificate_status": {
+    "state": "SUSPENDED",
+    "certificates": [],
+    "marker_scope": "certificate-only",
+    "alignment": {
+      "L0": "located: anchor ATT-06",
+      "L1": "closed: premises identified",
+      "L2": "incomplete: variants not excluded",
+      "L3": "advisory: 无记录"
+    }
+  },
+  "protocol_slots": [
+    {
+      "id": "L2-excl-rigidity",
+      "class": "Pi",
+      "status": "open",
+      "task": "Weaken each premise (primitive recursive coding; coverage of counterexample positions; reliable Sigma-1 system) and show where rigidity fails.",
+      "present": [
+        "rigidity statement in ATT-06"
+      ],
+      "missing": [
+        "variant exclusions"
+      ]
+    }
+  ],
+  "budget": {
+    "t": 172800,
+    "L": 1,
+    "k": 1,
+    "E": "textbook logic + formalization"
+  },
+  "history": [
+    {
+      "timestamp": "2026-11-28T11:00:00Z",
+      "event": "registered",
+      "actor": "registrar",
+      "note": "stocking wave: multi-tier bounties; registrar-authored: excluded from demand evidence"
+    }
+  ]
+}
