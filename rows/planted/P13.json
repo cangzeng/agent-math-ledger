@@ -1,0 +1,40 @@
+{
+  "row_id": "PLANTED-P13",
+  "object_registration": {
+    "class": "I+",
+    "formal_object_status": "task"
+  },
+  "proposition_registration": {
+    "statement_en": "Placeholder bounty task (contaminated sample)."
+  },
+  "certificate_status": {
+    "state": "SUSPENDED",
+    "certificates": [],
+    "marker_scope": "certificate-only",
+    "alignment": {
+      "L0": "filed",
+      "L1": "filed",
+      "L2": "filed",
+      "L3": "none"
+    }
+  },
+  "protocol_slots": {
+    "present": [],
+    "missing": [
+      "(this row presents itself as a bounty \u2014 inspect the budget tuple)"
+    ]
+  },
+  "budget": {
+    "t": "1 h",
+    "L": "1 row",
+    "E": "python3"
+  },
+  "history": [
+    {
+      "timestamp": "2026-11-28T10:00:00Z",
+      "event": "registered",
+      "actor": "registrar",
+      "note": "planted defect \u2014 find the Art. 4 violation"
+    }
+  ]
+}
