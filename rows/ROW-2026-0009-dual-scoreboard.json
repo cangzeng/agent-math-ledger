@@ -4,13 +4,13 @@
     "status": "constructed",
     "text": "Recompute the dual-lane scoreboard under rulebook v0.",
     "statement_en": "Recompute the dual-lane scoreboard under rulebook v0.1 and v0.2 and produce two comparable run traces.",
-    "source_anchor_zh": "semantic-grounding-corpus/attachments/ATT-09.md@8e3cdd2f0575a3b4e12d282c3237e958c9b2e5a2:\"悬置状态机：决策层、登记\""
+    "source_anchor_zh": "semantic-grounding-corpus/attachments/ATT-09.md@52f2da172ec41614f67fb2d9dc177a0677839369:\"悬置状态机：决策层、登记\""
   },
   "proposition_registration": {
     "status": "author_claimed",
     "text": "Recompute the dual-lane scoreboard under rulebook v0.1 and v0.2 and produce two comparable run traces.",
     "statement_en": "Recompute the dual-lane scoreboard under rulebook v0.1 and v0.2 and produce two comparable run traces.",
-    "source_anchor_zh": "semantic-grounding-corpus/attachments/ATT-09.md@8e3cdd2f0575a3b4e12d282c3237e958c9b2e5a2:\"悬置状态机：决策层、登记\"",
+    "source_anchor_zh": "semantic-grounding-corpus/attachments/ATT-09.md@52f2da172ec41614f67fb2d9dc177a0677839369:\"悬置状态机：决策层、登记\"",
     "translation_debt": "registrar-authored English rendering; third-party re-run clause applies"
   },
   "certificate_status": {
