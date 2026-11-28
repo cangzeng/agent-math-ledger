@@ -1,0 +1,55 @@
+{
+  "row_id": "ROW-2026-0010",
+  "object_registration": {
+    "status": "constructed",
+    "text": "Enumerate and exclude, one by one, the principal weakened variants of the Unbounded Suspension Theorem (drop consistency; drop recursive axiomatization; drop Q; finite-bound versions; single-premise-chain weakening).",
+    "statement_en": "Enumerate and exclude, one by one, the principal weakened variants of the Unbounded Suspension Theorem (drop consistency; drop recursive axiomatization; drop Q; finite-bound versions; single-premise-chain weakening).",
+    "source_anchor_zh": "semantic-grounding-corpus/attachments/ATT-02.md@8e3cdd2f0575a3b4e12d282c3237e958c9b2e5a2:\"三个前提——一致性、递归\""
+  },
+  "proposition_registration": {
+    "status": "author_claimed",
+    "text": "Enumerate and exclude, one by one, the principal weakened variants of the Unbounded Suspension Theorem (drop consistency; drop recursive axiomatization; drop Q; finite-bound versions; single-premise-chain weakening).",
+    "statement_en": "Enumerate and exclude, one by one, the principal weakened variants of the Unbounded Suspension Theorem (drop consistency; drop recursive axiomatization; drop Q; finite-bound versions; single-premise-chain weakening).",
+    "source_anchor_zh": "semantic-grounding-corpus/attachments/ATT-02.md@8e3cdd2f0575a3b4e12d282c3237e958c9b2e5a2:\"三个前提——一致性、递归\"",
+    "translation_debt": "registrar-authored English rendering; third-party re-run clause applies"
+  },
+  "certificate_status": {
+    "state": "SUSPENDED",
+    "certificates": [],
+    "marker_scope": "certificate-only",
+    "alignment": {
+      "L0": "located: anchor ATT-02",
+      "L1": "closed: three premises identified",
+      "L2": "incomplete: variants not excluded",
+      "L3": "advisory: 无记录"
+    }
+  },
+  "protocol_slots": [
+    {
+      "id": "L2-excl-unbounded",
+      "class": "Pi",
+      "status": "open",
+      "task": "For each weakened variant demonstrate failure or collapse; register the exclusion in L2 with the exact dropped premise.",
+      "present": [
+        "condition-depth registration of 3 premises"
+      ],
+      "missing": [
+        "L2 exclusion of 4-6 weakened variants"
+      ]
+    }
+  ],
+  "budget": {
+    "t": 259200,
+    "L": 1,
+    "k": 1,
+    "E": "textbook recursion theory + MRDP"
+  },
+  "history": [
+    {
+      "timestamp": "2026-11-28T11:00:00Z",
+      "event": "registered",
+      "actor": "registrar",
+      "note": "stocking wave: multi-tier bounties; registrar-authored: excluded from demand evidence"
+    }
+  ]
+}
