@@ -4,13 +4,13 @@
     "status": "constructed",
     "text": "Hunt the planted lane-poisoning defect: identify the forged external closure actor in P17.",
     "statement_en": "Hunt the planted lane-poisoning defect: identify the forged external closure actor in P17.",
-    "source_anchor_zh": "semantic-grounding-corpus/attachments/ATT-09.md@8e3cdd2f0575a3b4e12d282c3237e958c9b2e5a2:\"可翻转的三值状态机：已验\""
+    "source_anchor_zh": "semantic-grounding-corpus/attachments/ATT-09.md@52f2da172ec41614f67fb2d9dc177a0677839369:\"可翻转的三值状态机：已验\""
   },
   "proposition_registration": {
     "status": "author_claimed",
     "text": "Hunt the planted lane-poisoning defect: identify the forged external closure actor in P17.",
     "statement_en": "Hunt the planted lane-poisoning defect: identify the forged external closure actor in P17.",
-    "source_anchor_zh": "semantic-grounding-corpus/attachments/ATT-09.md@8e3cdd2f0575a3b4e12d282c3237e958c9b2e5a2:\"可翻转的三值状态机：已验\"",
+    "source_anchor_zh": "semantic-grounding-corpus/attachments/ATT-09.md@52f2da172ec41614f67fb2d9dc177a0677839369:\"可翻转的三值状态机：已验\"",
     "translation_debt": "registrar-authored English rendering; third-party re-run clause applies"
   },
   "certificate_status": {
