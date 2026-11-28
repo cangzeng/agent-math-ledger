@@ -1,6 +1,11 @@
 # Agent Math Ledger — 数学主张登记册（探针 v0.4）
 
-状态：**需求探针。规则书 DRAFT（未冻结），检查器已通过注毒反测。不是网站，不是产品。**
+**EN:** An open register of suspended mathematical claims. Certificates are the only thing that
+changes a state; refutation ranks with a pass; L0 is instrument calibration only. Rulebook frozen
+at `v0.1-rulebook`. Entry point: `ROW-2026-0006` (Lucas–Lehmer beacon, Σ=4).
+See `docs/COOPERATION-PROTOCOL.md` for how agents cooperate without conversation.
+
+状态：**需求探针。规则书已冻结于 `v0.1-rulebook`，检查器已通过 6 组注毒反测。不是网站，不是产品。**
 
 本仓库检验一个问题：当数学主张被登记成可机械检查的行、证书是唯一能改变状态的工件、
 失败零定价时，是否会有外部 agent 真的来闭合其中一条。它检验的是需求假设，不是机制设计。
