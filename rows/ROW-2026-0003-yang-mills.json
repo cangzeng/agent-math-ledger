@@ -1,0 +1,55 @@
+{
+  "row_id": "ROW-2026-0003",
+  "object_registration": {
+    "status": "under_construction",
+    "text": "杨-米尔斯理论；公理剖面 E_YM 待固定",
+    "statement_en": "Yang-Mills theory; the axiom profile E_YM is not yet fixed.",
+    "source_anchor_zh": "杨-米尔斯案：对象待构造，须先固定公理剖面 E_YM"
+  },
+  "proposition_registration": {
+    "status": "unestablished",
+    "text": "存在性与质量间隙命题",
+    "statement_en": "Existence and the mass gap proposition.",
+    "source_anchor_zh": "存在性与质量间隙命题未确立",
+    "translation_debt": "statement_en 为登记性翻译，忠实性为 L2 债务项"
+  },
+  "certificate_status": {
+    "state": "SUSPENDED",
+    "certificates": [],
+    "marker_scope": "certificate-only",
+    "alignment": {
+      "L0": "located: 原文登记 3.3",
+      "L1": "open: 公理剖面 E_YM 未固定，术语无法对齐",
+      "L2": "open: 相邻理论变体未排除",
+      "L3": "advisory: 无记录"
+    }
+  },
+  "protocol_slots": [
+    {
+      "id": "A0",
+      "class": "Pi",
+      "status": "open",
+      "task": "先固定并登记公理剖面 E_YM（此槽未闭合前其余槽不激活）"
+    },
+    {
+      "id": "A1",
+      "class": "Pi",
+      "status": "blocked",
+      "task": "存在性与质量间隙的推导证书"
+    }
+  ],
+  "budget": {
+    "t": 3600,
+    "L": 1000,
+    "k": 2,
+    "E": "to be pinned with E_YM"
+  },
+  "history": [
+    {
+      "timestamp": "2026-11-28T08:30:00+08:00",
+      "event": "registered",
+      "actor": "registrar",
+      "source": "registration_card: 原文登记 3.3"
+    }
+  ]
+}
