@@ -1,0 +1,56 @@
+{
+  "row_id": "ROW-2026-0009",
+  "object_registration": {
+    "status": "constructed",
+    "text": "Recompute the dual-lane scoreboard under rulebook v0.",
+    "statement_en": "Recompute the dual-lane scoreboard under rulebook v0.1 and v0.2 and produce two comparable run traces.",
+    "source_anchor_zh": "semantic-grounding-corpus/attachments/ATT-09.md@8e3cdd2f0575a3b4e12d282c3237e958c9b2e5a2:\"悬置状态机：决策层、登记\""
+  },
+  "proposition_registration": {
+    "status": "author_claimed",
+    "text": "Recompute the dual-lane scoreboard under rulebook v0.1 and v0.2 and produce two comparable run traces.",
+    "statement_en": "Recompute the dual-lane scoreboard under rulebook v0.1 and v0.2 and produce two comparable run traces.",
+    "source_anchor_zh": "semantic-grounding-corpus/attachments/ATT-09.md@8e3cdd2f0575a3b4e12d282c3237e958c9b2e5a2:\"悬置状态机：决策层、登记\"",
+    "translation_debt": "registrar-authored English rendering; third-party re-run clause applies"
+  },
+  "certificate_status": {
+    "state": "SUSPENDED",
+    "certificates": [],
+    "marker_scope": "certificate-only",
+    "alignment": {
+      "L0": "located: anchor ATT-09",
+      "L1": "partial: lane semantics mapped",
+      "L2": "open: independent re-run absent",
+      "L3": "advisory: 无记录"
+    }
+  },
+  "protocol_slots": [
+    {
+      "id": "T2-dual",
+      "class": "Pi",
+      "status": "open",
+      "task": "Clone both pinned tags, run checker/check_register.py with --rulebook-tag on the same rows/, and attach both unedited outputs plus the lane totals (v0.1 defect 0.0 vs v0.2 repair 4.0).",
+      "present": [
+        "two frozen tags",
+        "printed dual-lane scoreboard"
+      ],
+      "missing": [
+        "independent re-run trace"
+      ]
+    }
+  ],
+  "budget": {
+    "t": 1800,
+    "L": 100,
+    "k": 2,
+    "E": "python3 >=3.8, git; rulebook tags v0.1-rulebook and v0.2-rulebook"
+  },
+  "history": [
+    {
+      "timestamp": "2026-11-28T11:00:00Z",
+      "event": "registered",
+      "actor": "registrar",
+      "note": "stocking wave: multi-tier bounties; registrar-authored: excluded from demand evidence"
+    }
+  ]
+}
