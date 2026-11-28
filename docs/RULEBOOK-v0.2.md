@@ -1,6 +1,6 @@
 # RULEBOOK v0.2 — FROZEN (2026-11-28)
 
-> **frozen_at: v0.2-rulebook@PENDING-TAG-SHA** — 该字段在 annotated tag 创建后填入其指向的
+> **frozen_at: v0.2-rulebook@545160707e7acc34c2fdd64da622721a055a739b** — 该字段在 annotated tag 创建后填入其指向的
 > commit sha。`checker/check_register.py --rulebook-tag TAG@40hex-sha` 拒绝 DRAFT 文本冒充冻结文本。
 >
 > 冻结前置条件已闭合：2026-11-28 第二通道对抗审查的六项缺陷全部在代码中关闭
