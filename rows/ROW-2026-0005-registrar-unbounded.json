@@ -1,0 +1,55 @@
+{
+  "row_id": "ROW-2026-0005",
+  "object_registration": {
+    "status": "constructed",
+    "text": "截断核验与整体可判定性的分离；T(e,x,y)、S(e,m)、Tot(e)、TOT 的形式对象",
+    "statement_en": "Separation of truncated verification from total decidability; formal objects T(e,x,y), S(e,m), Tot(e), TOT.",
+    "source_anchor_zh": "截断核验与整体可判定性分离（原文第2章定理1）"
+  },
+  "proposition_registration": {
+    "status": "author_claimed",
+    "text": "TOT 为 Π₂ 完全且不可判定（作者原文标记【已证】）",
+    "statement_en": "TOT is Π2-complete and undecidable (author-marked as proved).",
+    "source_anchor_zh": "TOT Π₂ 完全且不可判定【已证】",
+    "translation_debt": "statement_en 为登记性翻译；本行不重复作者的已证标记"
+  },
+  "certificate_status": {
+    "state": "SUSPENDED",
+    "certificates": [],
+    "marker_scope": "certificate-only",
+    "alignment": {
+      "L0": "located: 原文第2章定理1；registry/R-0001-truncated-vs-total.json",
+      "L1": "partial: 符号已锚定；Π₂ 完全的编码选择待固定",
+      "L2": "open: 相邻变体（不同编码下的完备性表述）未排除",
+      "L3": "advisory: 无记录"
+    }
+  },
+  "protocol_slots": [
+    {
+      "id": "Pi1",
+      "class": "Pi",
+      "status": "open",
+      "task": "给出 TOT Π₂ 完全的推导证书；必须先固定编码方案"
+    },
+    {
+      "id": "U1",
+      "class": "U",
+      "status": "open",
+      "task": "给出可由第三方重跑的形式化核验程序与环境哈希"
+    }
+  ],
+  "budget": {
+    "t": 3600,
+    "L": 1000,
+    "k": 2,
+    "E": "Lean/mathlib, version pinned at PR time"
+  },
+  "history": [
+    {
+      "timestamp": "2026-11-28T08:30:00+08:00",
+      "event": "registrar_own_claim_demoted",
+      "actor": "registrar",
+      "note": "登记官本人著作中的定理，按 Article 5 第2款降为 SUSPENDED；作者原文【已证】不作为本登记册证书。registrar-authored: excluded from demand evidence."
+    }
+  ]
+}
