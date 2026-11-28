@@ -1,0 +1,55 @@
+{
+  "row_id": "ROW-2026-0007",
+  "object_registration": {
+    "status": "referred",
+    "text": "NP-Complexity-Reduction 仓库的 near-polynomial collapse 声称（作者原文）",
+    "statement_en": "The near-polynomial collapse claim as worded in the author's NP-Complexity-Reduction repository.",
+    "source_anchor_zh": "Quantum-ordinal mapping collapses complexity to near-polynomial time (O(n^1.01) for 3-SAT)"
+  },
+  "proposition_registration": {
+    "status": "unestablished",
+    "text": "上述 near-polynomial collapse 声称成立",
+    "statement_en": "That the near-polynomial collapse claim holds.",
+    "source_anchor_zh": "注册为 SUSPENDED 样本，不重复断言",
+    "translation_debt": "不适用（原文为英文）"
+  },
+  "certificate_status": {
+    "state": "SUSPENDED",
+    "certificates": [],
+    "marker_scope": "certificate-only",
+    "alignment": {
+      "L0": "located: github.com/cangzeng/NP-Complexity-Reduction README + description",
+      "L1": "open: 术语到定义的映射未完成",
+      "L2": "open: 相邻变体未排除；同实验 0.71 s vs 0.71 ms 的数值不一致记为债务",
+      "L3": "advisory: 外部锚点限于作者自上传预印本"
+    }
+  },
+  "protocol_slots": [
+    {
+      "id": "Pi-decisive",
+      "class": "Pi",
+      "status": "open",
+      "task": "给出判决性归约协议（含可复核证书）；本槽闭合前不解除 SUSPENDED"
+    },
+    {
+      "id": "Consistency",
+      "class": "U",
+      "status": "open",
+      "task": "解决 0.71 s / 0.71 ms 数值不一致，并给出原始实验记录"
+    }
+  ],
+  "budget": {
+    "t": 3600,
+    "L": 1000,
+    "k": 2,
+    "E": "version pinned at PR time"
+  },
+  "history": [
+    {
+      "timestamp": "2026-11-28T08:30:00+08:00",
+      "event": "registrar_own_claim_demoted",
+      "actor": "registrar",
+      "note": "登记官自有仓的大型声称降级为 SUSPENDED 样本：规则先在登记官自己身上运转，不是例外。registrar-authored: excluded from demand evidence."
+    }
+  ]
+}
