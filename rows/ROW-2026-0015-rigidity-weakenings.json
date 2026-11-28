@@ -4,14 +4,14 @@
     "status": "constructed",
     "text": "Enumerate and exclude the principal weakened variants of the coding-rigidity theorem for the Riemann Hypothesis.",
     "statement_en": "Enumerate and exclude the principal weakened variants of the coding-rigidity theorem for the Riemann Hypothesis.",
-    "source_anchor_zh": "semantic-grounding-corpus/attachments/ATT-06.md@52f2da172ec41614f67fb2d9dc177a0677839369:\"编码刚性定理进一步证明该\""
+    "source_anchor_zh": "semantic-grounding-corpus/attachments/text/ATT-06.md@c41a39c7b0e27ed71bcadf2cdb23279dae77ef36:\"Riemann Hypothesis and the Credibility Layering of Formalized Proofs\""
   },
   "proposition_registration": {
     "status": "author_claimed",
     "text": "Enumerate and exclude the principal weakened variants of the coding-rigidity theorem for the Riemann Hypothesis.",
     "statement_en": "Enumerate and exclude the principal weakened variants of the coding-rigidity theorem for the Riemann Hypothesis.",
-    "source_anchor_zh": "semantic-grounding-corpus/attachments/ATT-06.md@52f2da172ec41614f67fb2d9dc177a0677839369:\"编码刚性定理进一步证明该\"",
-    "translation_debt": "registrar-authored English rendering; third-party re-run clause applies"
+    "source_anchor_zh": "semantic-grounding-corpus/attachments/text/ATT-06.md@c41a39c7b0e27ed71bcadf2cdb23279dae77ef36:\"Riemann Hypothesis and the Credibility Layering of Formalized Proofs\"",
+    "translation_debt": "English source (PDF); statement_en is the registered rendering, alignment debt remains open"
   },
   "certificate_status": {
     "state": "SUSPENDED",
