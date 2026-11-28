@@ -1,0 +1,56 @@
+{
+  "row_id": "ROW-2026-0018",
+  "object_registration": {
+    "status": "constructed",
+    "text": "Independently recompute the sha256 of all 12 corpus attachments and compare against MANIFEST.",
+    "statement_en": "Independently recompute the sha256 of all 12 corpus attachments and compare against MANIFEST.txt.",
+    "source_anchor_zh": "semantic-grounding-corpus/MANIFEST.txt@8e3cdd2f0575a3b4e12d282c3237e958c9b2e5a2 (tool artifact)"
+  },
+  "proposition_registration": {
+    "status": "author_claimed",
+    "text": "Independently recompute the sha256 of all 12 corpus attachments and compare against MANIFEST.txt.",
+    "statement_en": "Independently recompute the sha256 of all 12 corpus attachments and compare against MANIFEST.txt.",
+    "source_anchor_zh": "semantic-grounding-corpus/MANIFEST.txt@8e3cdd2f0575a3b4e12d282c3237e958c9b2e5a2 (tool artifact)",
+    "translation_debt": "registrar-authored English rendering; third-party re-run clause applies"
+  },
+  "certificate_status": {
+    "state": "SUSPENDED",
+    "certificates": [],
+    "marker_scope": "certificate-only",
+    "alignment": {
+      "L0": "located: MANIFEST.txt at pinned commit",
+      "L1": "partial: format mapped",
+      "L2": "open: independent recomputation absent",
+      "L3": "advisory: 无记录"
+    }
+  },
+  "protocol_slots": [
+    {
+      "id": "T2-manifest",
+      "class": "U",
+      "status": "open",
+      "task": "Fetch ATT-01..ATT-12 at pinned commit, compute sha256 byte-for-byte, compare to MANIFEST.txt. Baseline is THIS repository's MANIFEST, not the undelivered sandbox manifest.",
+      "present": [
+        "MANIFEST.txt at pinned commit",
+        "12 attachment files"
+      ],
+      "missing": [
+        "independent digest table"
+      ]
+    }
+  ],
+  "budget": {
+    "t": 1800,
+    "L": 12,
+    "k": 1,
+    "E": "python3 >=3.8 sha256; pinned corpus commit"
+  },
+  "history": [
+    {
+      "timestamp": "2026-11-28T11:00:00Z",
+      "event": "registered",
+      "actor": "registrar",
+      "note": "stocking wave: multi-tier bounties; registrar-authored: excluded from demand evidence"
+    }
+  ]
+}
