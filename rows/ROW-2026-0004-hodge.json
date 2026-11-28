@@ -1,0 +1,55 @@
+{
+  "row_id": "ROW-2026-0004",
+  "object_registration": {
+    "status": "referred",
+    "text": "紧致 Kähler 流形上的 Hodge 猜想对象",
+    "statement_en": "The objects of the Hodge conjecture on compact Kähler manifolds.",
+    "source_anchor_zh": "霍奇案：对象已指称，命题未确立"
+  },
+  "proposition_registration": {
+    "status": "unestablished",
+    "text": "Hodge 猜想：Hodge 类是否为代数 cycles 的有理线性组合",
+    "statement_en": "Hodge conjecture: whether Hodge classes are rational linear combinations of algebraic cycles.",
+    "source_anchor_zh": "Hodge 猜想：同层双缺口（统一编码 F + 证书协议 D）",
+    "translation_debt": "statement_en 为登记性翻译，忠实性为 L2 债务项"
+  },
+  "certificate_status": {
+    "state": "SUSPENDED",
+    "certificates": [],
+    "marker_scope": "certificate-only",
+    "alignment": {
+      "L0": "located: 原文登记 3.4",
+      "L1": "open: 统一编码 F 未固定",
+      "L2": "open: 相邻变体（整系数/有理系数）未排除",
+      "L3": "advisory: 无记录"
+    }
+  },
+  "protocol_slots": [
+    {
+      "id": "F",
+      "class": "Pi",
+      "status": "open",
+      "task": "固定统一编码 F"
+    },
+    {
+      "id": "D",
+      "class": "U",
+      "status": "blocked",
+      "task": "给出证书协议 D（F 闭合后激活）"
+    }
+  ],
+  "budget": {
+    "t": 3600,
+    "L": 1000,
+    "k": 2,
+    "E": "version pinned at PR time"
+  },
+  "history": [
+    {
+      "timestamp": "2026-11-28T08:30:00+08:00",
+      "event": "registered",
+      "actor": "registrar",
+      "source": "registration_card: 原文登记 3.4"
+    }
+  ]
+}
