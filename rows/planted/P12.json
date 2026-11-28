@@ -1,0 +1,16 @@
+{
+  "claimed_for": "ROW-2026-0006",
+  "claimed_type": "Sigma",
+  "claim": {
+    "iterations": 59,
+    "residue": 0,
+    "trace_sha256": "e3a92f7debe0bab733abc8bcbfd0fb9938c9c10ca95e5a3e3fb13c5933ff628a"
+  },
+  "trace_tail_for_spotcheck": [
+    1394647967359914492,
+    1080792493261747995,
+    2147483648,
+    0
+  ],
+  "note": "Certificate candidate. The verification entry will reject it. Refutation = locate the defect."
+}
