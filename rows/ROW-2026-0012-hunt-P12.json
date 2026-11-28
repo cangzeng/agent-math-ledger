@@ -4,13 +4,13 @@
     "status": "constructed",
     "text": "Hunt the planted defective Lucas-Lehmer trace: locate the interior value that was altered.",
     "statement_en": "Hunt the planted defective Lucas-Lehmer trace: locate the interior value that was altered.",
-    "source_anchor_zh": "checker/beacon_lucas_lehmer.py@8e3cdd2f0575a3b4e12d282c3237e958c9b2e5a2 (tool artifact, not corpus)"
+    "source_anchor_zh": "checker/beacon_lucas_lehmer.py@52f2da172ec41614f67fb2d9dc177a0677839369 (tool artifact, not corpus)"
   },
   "proposition_registration": {
     "status": "author_claimed",
     "text": "Hunt the planted defective Lucas-Lehmer trace: locate the interior value that was altered.",
     "statement_en": "Hunt the planted defective Lucas-Lehmer trace: locate the interior value that was altered.",
-    "source_anchor_zh": "checker/beacon_lucas_lehmer.py@8e3cdd2f0575a3b4e12d282c3237e958c9b2e5a2 (tool artifact, not corpus)",
+    "source_anchor_zh": "checker/beacon_lucas_lehmer.py@52f2da172ec41614f67fb2d9dc177a0677839369 (tool artifact, not corpus)",
     "translation_debt": "registrar-authored English rendering; third-party re-run clause applies"
   },
   "certificate_status": {
