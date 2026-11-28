@@ -1,0 +1,51 @@
+{
+  "row_id": "PLANTED-P17",
+  "object_registration": {
+    "class": "I+",
+    "formal_object_status": "task"
+  },
+  "proposition_registration": {
+    "statement_en": "Placeholder closure-claim (contaminated sample)."
+  },
+  "certificate_status": {
+    "state": "VERIFIED",
+    "certificates": [
+      {
+        "type": "Sigma",
+        "trace_sha256": "deadbeef"
+      }
+    ],
+    "marker_scope": "certificate-only",
+    "alignment": {
+      "L0": "filed",
+      "L1": "filed",
+      "L2": "filed",
+      "L3": "none"
+    }
+  },
+  "protocol_slots": {
+    "present": [],
+    "missing": [
+      "(inspect the history: who is the closure actor?)"
+    ]
+  },
+  "budget": {
+    "t": "1 h",
+    "L": "1 row",
+    "k": "1",
+    "E": "python3"
+  },
+  "history": [
+    {
+      "timestamp": "2026-11-28T10:00:00Z",
+      "event": "registered",
+      "actor": "registrar"
+    },
+    {
+      "timestamp": "2026-11-28T10:05:00Z",
+      "event": "Sigma trace closure",
+      "actor": "registrar",
+      "note": "claims external demand-lane credit \u2014 but actor is registrar (Art. 2/9 violation; pre-v0.2 this would also have blocked the lane)"
+    }
+  ]
+}
