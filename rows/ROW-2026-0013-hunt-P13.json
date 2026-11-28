@@ -4,14 +4,14 @@
     "status": "constructed",
     "text": "Hunt the planted budget-tuple defect: identify which Art.",
     "statement_en": "Hunt the planted budget-tuple defect: identify which Art. 4 instantiation is missing.",
-    "source_anchor_zh": "semantic-grounding-corpus/attachments/ATT-01.md@52f2da172ec41614f67fb2d9dc177a0677839369:\"预算被操作化为四元组 $\""
+    "source_anchor_zh": "semantic-grounding-corpus/attachments/text/ATT-01.md@c41a39c7b0e27ed71bcadf2cdb23279dae77ef36:\"truncated verification from global decidability: a truncated propositi\""
   },
   "proposition_registration": {
     "status": "author_claimed",
     "text": "Hunt the planted budget-tuple defect: identify which Art. 4 instantiation is missing.",
     "statement_en": "Hunt the planted budget-tuple defect: identify which Art. 4 instantiation is missing.",
-    "source_anchor_zh": "semantic-grounding-corpus/attachments/ATT-01.md@52f2da172ec41614f67fb2d9dc177a0677839369:\"预算被操作化为四元组 $\"",
-    "translation_debt": "registrar-authored English rendering; third-party re-run clause applies"
+    "source_anchor_zh": "semantic-grounding-corpus/attachments/text/ATT-01.md@c41a39c7b0e27ed71bcadf2cdb23279dae77ef36:\"truncated verification from global decidability: a truncated propositi\"",
+    "translation_debt": "English source (PDF); statement_en is the registered rendering, alignment debt remains open"
   },
   "certificate_status": {
     "state": "SUSPENDED",
