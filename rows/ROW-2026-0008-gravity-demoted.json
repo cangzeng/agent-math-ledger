@@ -1,0 +1,55 @@
+{
+  "row_id": "ROW-2026-0008",
+  "object_registration": {
+    "status": "referred",
+    "text": "Gravity-is-Not-a-Fundamental-Force 仓库的涌现引力纲领性声称（作者原文）",
+    "statement_en": "The emergent-gravity advocacy claim as worded in the author's Gravity-is-Not-a-Fundamental-Force repository.",
+    "source_anchor_zh": "Gravity is Not a Fundamental Force（Verlinde 传统：热力学/全息涌现）"
+  },
+  "proposition_registration": {
+    "status": "unestablished",
+    "text": "上述涌现引力声称成立",
+    "statement_en": "That the emergent-gravity claim holds.",
+    "source_anchor_zh": "注册为 program-level advocacy，不主张已确立结果",
+    "translation_debt": "不适用（原文为英文）"
+  },
+  "certificate_status": {
+    "state": "SUSPENDED",
+    "certificates": [],
+    "marker_scope": "certificate-only",
+    "alignment": {
+      "L0": "located: github.com/cangzeng/Gravity-is-Not-a-Fundamental-Force README",
+      "L1": "open: '引力非基本' 的术语到定义映射未完成",
+      "L2": "open: 与既有量子引力纲领的相邻变体未排除",
+      "L3": "advisory: 无记录"
+    }
+  },
+  "protocol_slots": [
+    {
+      "id": "Pi-decisive",
+      "class": "Pi",
+      "status": "open",
+      "task": "给出判决性推导证书；本槽闭合前保持 SUSPENDED"
+    },
+    {
+      "id": "Sigma-prediction",
+      "class": "Sigma",
+      "status": "open",
+      "task": "给出可复核的可证伪预测迹（原文声称有预测，但未登记为证书）"
+    }
+  ],
+  "budget": {
+    "t": 3600,
+    "L": 1000,
+    "k": 2,
+    "E": "version pinned at PR time"
+  },
+  "history": [
+    {
+      "timestamp": "2026-11-28T08:30:00+08:00",
+      "event": "registrar_own_claim_demoted",
+      "actor": "registrar",
+      "note": "登记官自有仓的纲领性声称降级为 SUSPENDED 样本：规则先在登记官自己身上运转，不是例外。registrar-authored: excluded from demand evidence."
+    }
+  ]
+}
