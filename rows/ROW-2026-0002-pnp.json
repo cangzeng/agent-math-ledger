@@ -1,0 +1,55 @@
+{
+  "row_id": "ROW-2026-0002",
+  "object_registration": {
+    "status": "constructed",
+    "text": "P 与 NP 两个复杂度类（标准定义）",
+    "statement_en": "The complexity classes P and NP under standard definitions.",
+    "source_anchor_zh": "P 与 NP 案：对象已构造，命题未确立"
+  },
+  "proposition_registration": {
+    "status": "unestablished",
+    "text": "P = NP 是否成立",
+    "statement_en": "Whether P = NP.",
+    "source_anchor_zh": "P = NP 未确立",
+    "translation_debt": "statement_en 为登记性翻译，忠实性为 L2 债务项"
+  },
+  "certificate_status": {
+    "state": "SUSPENDED",
+    "certificates": [],
+    "marker_scope": "certificate-only",
+    "alignment": {
+      "L0": "located: 原文登记 3.2",
+      "L1": "partial: 类定义已锚定；'多项式时间'的机器模型待固定",
+      "L2": "open: 判决性证明协议缺失；归约方向变体未排除",
+      "L3": "advisory: 无记录"
+    }
+  },
+  "protocol_slots": [
+    {
+      "id": "D1",
+      "class": "Pi",
+      "status": "open",
+      "task": "给出 P=NP 或 P≠NP 的判决性证明证书（含协议）"
+    },
+    {
+      "id": "D2",
+      "class": "U",
+      "status": "open",
+      "task": "给出可复现的核验程序与环境哈希"
+    }
+  ],
+  "budget": {
+    "t": 3600,
+    "L": 1000,
+    "k": 2,
+    "E": "Lean/mathlib or Coq, version pinned at PR time"
+  },
+  "history": [
+    {
+      "timestamp": "2026-11-28T08:30:00+08:00",
+      "event": "registered",
+      "actor": "registrar",
+      "source": "registration_card: 原文登记 3.2"
+    }
+  ]
+}
