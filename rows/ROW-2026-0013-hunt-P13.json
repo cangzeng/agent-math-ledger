@@ -1,0 +1,55 @@
+{
+  "row_id": "ROW-2026-0013",
+  "object_registration": {
+    "status": "constructed",
+    "text": "Hunt the planted budget-tuple defect: identify which Art.",
+    "statement_en": "Hunt the planted budget-tuple defect: identify which Art. 4 instantiation is missing.",
+    "source_anchor_zh": "semantic-grounding-corpus/attachments/ATT-01.md@8e3cdd2f0575a3b4e12d282c3237e958c9b2e5a2:\"预算被操作化为四元组 $\""
+  },
+  "proposition_registration": {
+    "status": "author_claimed",
+    "text": "Hunt the planted budget-tuple defect: identify which Art. 4 instantiation is missing.",
+    "statement_en": "Hunt the planted budget-tuple defect: identify which Art. 4 instantiation is missing.",
+    "source_anchor_zh": "semantic-grounding-corpus/attachments/ATT-01.md@8e3cdd2f0575a3b4e12d282c3237e958c9b2e5a2:\"预算被操作化为四元组 $\"",
+    "translation_debt": "registrar-authored English rendering; third-party re-run clause applies"
+  },
+  "certificate_status": {
+    "state": "SUSPENDED",
+    "certificates": [],
+    "marker_scope": "certificate-only",
+    "alignment": {
+      "L0": "located: rows/planted/P13.json + anchor ATT-01",
+      "L1": "partial: claim parsed",
+      "L2": "open: missing field not identified",
+      "L3": "advisory: 无记录"
+    }
+  },
+  "protocol_slots": [
+    {
+      "id": "T3-hunt-P13",
+      "class": "Sigma",
+      "status": "open",
+      "task": "P13 presents itself as a bounty but its budget tuple omits k. Under Article 4 an uninstantiated suspension cannot support a bounty. Locate the missing field and state the consequence.",
+      "present": [
+        "planted sample at rows/planted/P13.json"
+      ],
+      "missing": [
+        "missing-field identification"
+      ]
+    }
+  ],
+  "budget": {
+    "t": 900,
+    "L": 10,
+    "k": 1,
+    "E": "rulebook v0.2 Article 4"
+  },
+  "history": [
+    {
+      "timestamp": "2026-11-28T11:00:00Z",
+      "event": "registered",
+      "actor": "registrar",
+      "note": "stocking wave: multi-tier bounties; registrar-authored: excluded from demand evidence"
+    }
+  ]
+}
