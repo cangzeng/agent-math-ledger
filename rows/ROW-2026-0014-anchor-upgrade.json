@@ -1,0 +1,56 @@
+{
+  "row_id": "ROW-2026-0014",
+  "object_registration": {
+    "status": "constructed",
+    "text": "Upgrade the L0 anchors of the six legacy rows from local F: paths to public commit-pinned corpus anchors.",
+    "statement_en": "Upgrade the L0 anchors of the six legacy rows from local F: paths to public commit-pinned corpus anchors.",
+    "source_anchor_zh": "semantic-grounding-corpus/attachments/ATT-12.md@8e3cdd2f0575a3b4e12d282c3237e958c9b2e5a2:\"陈述对齐：跨语言对应的稠\""
+  },
+  "proposition_registration": {
+    "status": "author_claimed",
+    "text": "Upgrade the L0 anchors of the six legacy rows from local F: paths to public commit-pinned corpus anchors.",
+    "statement_en": "Upgrade the L0 anchors of the six legacy rows from local F: paths to public commit-pinned corpus anchors.",
+    "source_anchor_zh": "semantic-grounding-corpus/attachments/ATT-12.md@8e3cdd2f0575a3b4e12d282c3237e958c9b2e5a2:\"陈述对齐：跨语言对应的稠\"",
+    "translation_debt": "registrar-authored English rendering; third-party re-run clause applies"
+  },
+  "certificate_status": {
+    "state": "SUSPENDED",
+    "certificates": [],
+    "marker_scope": "certificate-only",
+    "alignment": {
+      "L0": "located: anchor ATT-12",
+      "L1": "open: public mapping not applied",
+      "L2": "open: not verified",
+      "L3": "advisory: 无记录"
+    }
+  },
+  "protocol_slots": [
+    {
+      "id": "META-L0",
+      "class": "L0",
+      "status": "open",
+      "task": "For each legacy row whose source_anchor_zh points to a local path, replace it with semantic-grounding-corpus/attachments/ATT-NN.md@<sha>:\"<prefix>\"; verify prefix and sha256. L0 closure only; no state promotion.",
+      "present": [
+        "six legacy rows identified",
+        "public corpus commit"
+      ],
+      "missing": [
+        "six anchors rewritten and verified"
+      ]
+    }
+  ],
+  "budget": {
+    "t": 3600,
+    "L": 6,
+    "k": 1,
+    "E": "git; corpus commit pinned"
+  },
+  "history": [
+    {
+      "timestamp": "2026-11-28T11:00:00Z",
+      "event": "registered",
+      "actor": "registrar",
+      "note": "stocking wave: multi-tier bounties; registrar-authored: excluded from demand evidence"
+    }
+  ]
+}
